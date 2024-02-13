@@ -22,4 +22,9 @@ public class COMMESSE
     {
         
     }
+    //jvivxcmx
+    //    vxcòv
+    //    xòbvx
+    //    òbv
+    //    //xò
 }
