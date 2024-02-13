@@ -41,7 +41,7 @@ public class DIPENDENTI
         return c.dt;
     }
 
-    public void CambiaPWD()
+    public void CambiaPassword()
     {
         CONNESSIONE c = new CONNESSIONE();
         c.querydicomando = "CambiaPassword";
@@ -49,5 +49,14 @@ public class DIPENDENTI
         c.cmd.Parameters.AddWithValue("@PWD", PWD);
 
         c.EseguiComando();
+    }
+
+    public DataTable DipendentiSelect()
+    {
+        CONNESSIONE c = new CONNESSIONE();
+        c.querydiselezione = "DipendentiSelect";
+
+        c.EseguiSelect();
+        return c.dt;
     }
 }

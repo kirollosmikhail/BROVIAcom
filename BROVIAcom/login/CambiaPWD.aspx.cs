@@ -35,7 +35,7 @@ public partial class CambiaPWD : System.Web.UI.Page
         DIPENDENTI d = new DIPENDENTI();
         d.PWD = txtPassword.Text;
         d.Cod_Dipendente = int.Parse(Session["Cod_Dipendente"].ToString());
-        d.CambiaPWD();
+        d.CambiaPassword();
         Response.Redirect("login.aspx");
     }
 }
