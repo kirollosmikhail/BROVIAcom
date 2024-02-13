@@ -15,8 +15,8 @@
         <div class="login-container">
             <img src="../img/BROVIAcom.png" />
             <h2>Imposta Password</h2>
-            <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control textbox" placeholder="Password" Style="text-align: center;" />
-            <asp:TextBox ID="txtConfermaPassword" runat="server" CssClass="form-control textbox" placeholder="Conferma Password" Style="text-align: center; margin-top: 5px" />
+            <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control textbox" placeholder="Password" Style="text-align: center;" TextMode="Password" />
+            <asp:TextBox ID="txtConfermaPassword" runat="server" CssClass="form-control textbox" placeholder="Conferma Password" Style="text-align: center; margin-top: 5px" TextMode="Password" />
             <br />
             <asp:Button ID="btnLogin" runat="server" Text="Conferma" CssClass="button" OnClick="btnLogin_Click" />
         </div>

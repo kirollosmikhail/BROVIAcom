@@ -40,4 +40,14 @@ public class DIPENDENTI
         c.EseguiSelect();
         return c.dt;
     }
+
+    public void CambiaPWD()
+    {
+        CONNESSIONE c = new CONNESSIONE();
+        c.querydicomando = "CambiaPassword";
+        c.cmd.Parameters.AddWithValue("@Cod_Dipendente", Cod_Dipendente);
+        c.cmd.Parameters.AddWithValue("@PWD", PWD);
+
+        c.EseguiComando();
+    }
 }

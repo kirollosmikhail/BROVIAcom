@@ -28,12 +28,12 @@ public partial class login : System.Web.UI.Page
 
         if (dt.Rows.Count > 0) //trova lo USR nel DataBase
         {
+            Session["Cod_Dipendente"] = dt.Rows[0]["Cod_Dipendente"].ToString();
             if (dt.Rows[0]["PWD"].ToString() == "benvenuto") //se dipendente effettua il primo accesso
             {
                 Response.Redirect("CambiaPWD.aspx");
                 return;
             }
-            Session["Cod_Dipendente"] = dt.Rows[0]["Cod_Dipendente"].ToString();
             Response.Redirect("../Home.aspx");
             return;
         }
