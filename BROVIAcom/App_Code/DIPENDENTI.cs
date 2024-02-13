@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -27,5 +28,16 @@ public class DIPENDENTI
     public DIPENDENTI()
     {
         
+    }
+
+    public DataTable Login()
+    {
+        CONNESSIONE c = new CONNESSIONE();
+        c.querydiselezione = "Login";
+        c.cmd.Parameters.AddWithValue("@USR", USR);
+        c.cmd.Parameters.AddWithValue("@PWD", PWD);
+
+        c.EseguiSelect();
+        return c.dt;
     }
 }
