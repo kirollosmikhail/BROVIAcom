@@ -11,11 +11,11 @@
     </div>
     <br />
     <br />
-    <div>
-        <asp:TextBox runat="server" type="text" CssClass="form-control textbox" Style="width: 200px; float: left; margin: 4px 10px 4px 2px;" placeholder="Cerca dipendente"></asp:TextBox>
-        <asp:Button runat="server" CssClass="button" Text="Cerca" />
+        <asp:TextBox ID="cerca" runat="server" type="text" CssClass="form-control textbox" Style="width: 200px" placeholder="Cerca dipendente" AutoPostBack="true" OnTextChanged="Page_Load"></asp:TextBox> <%--USARE INVIO--%>
+    <br />
+    <div class="table-container">
+        <asp:GridView ID="GridView1" CssClass="gridview" runat="server"></asp:GridView>
     </div>
 
-    <asp:GridView ID="GridView1" CssClass="gridview" runat="server"></asp:GridView>
 </asp:Content>
 

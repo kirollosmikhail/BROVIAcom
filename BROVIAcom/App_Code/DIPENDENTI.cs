@@ -59,4 +59,13 @@ public class DIPENDENTI
         c.EseguiSelect();
         return c.dt;
     }
+    public DataTable DipendentiCerca()
+    {
+        CONNESSIONE c = new CONNESSIONE();
+        c.querydiselezione = "DipendentiCerca";
+        c.cmd.Parameters.AddWithValue("@Cognome", Cognome);
+
+        c.EseguiSelect();
+        return c.dt;
+    }
 }
