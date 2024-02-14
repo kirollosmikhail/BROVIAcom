@@ -11,7 +11,7 @@ hr {
 }
 
 p {
-    color: rgba(51, 122, 183, 0.55);
+    color: white;
 }
 
 
@@ -21,6 +21,7 @@ p {
 }
 
     .divdati div {
+        padding-top:5px;
         padding-bottom: 5px;
         border-bottom: solid 1px #337ab7;
     }
@@ -145,7 +146,7 @@ footer {
     min-width: 200px;
 }
 
-@media (max-width:1300px) {
+@media (max-width:1550px) {
     .table-container {
         overflow: auto;
     }

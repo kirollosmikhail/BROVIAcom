@@ -18,15 +18,17 @@
         <div>
             <asp:Label runat="server" Text="Data Assunzione"></asp:Label>
             <asp:TextBox ID="dataass_txt" runat="server" type="text" CssClass="form-control textbox" placeholder="Data Assunzione" TextMode="Date" />
-            <asp:Label runat="server" Text="Data Licenziamento"></asp:Label>
+
+            <asp:Label runat="server" Text="*Data Licenziamento"></asp:Label>
             <asp:TextBox ID="datalic_txt" runat="server" type="text" CssClass="form-control textbox" placeholder="*Data Licenziamento" TextMode="Date" />
+        </div>
+        <div>
+            <asp:Label runat="server" Text="Tipo dipendente"></asp:Label>
+            <asp:DropDownList ID="ddlTipiDipendenti" runat="server"></asp:DropDownList>
 
             <asp:TextBox ID="pIVA_txt" runat="server" type="text" CssClass="form-control textbox" placeholder="*Partita IVA" />
 
             <asp:TextBox ID="salario_txt" runat="server" type="text" CssClass="form-control textbox" placeholder="*Salario" />
-
-            <asp:Label runat="server" Text="Tipo dipendente"></asp:Label>
-            <asp:DropDownList ID="ddlTipiDipendenti" runat="server"></asp:DropDownList>
         </div>
         <div>
             <asp:TextBox ID="telefono_txt" runat="server" type="text" CssClass="form-control textbox" placeholder="Telefono" />

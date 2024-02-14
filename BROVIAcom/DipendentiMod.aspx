@@ -16,16 +16,19 @@
             <asp:TextBox ID="USR_txt" runat="server" type="text" CssClass="form-control textbox" placeholder="Username" />
         </div>
         <div>
-            <asp:TextBox ID="dataass_txt" runat="server" type="text" CssClass="form-control textbox" placeholder="Data Assunzione" />
+            <asp:Label runat="server" Text="Data Assunzione"></asp:Label>
+            <asp:TextBox ID="dataass_txt" runat="server" type="text" CssClass="form-control textbox" placeholder="Data Assunzione" TextMode="Date" />
 
-            <asp:TextBox ID="datalic_txt" runat="server" type="text" CssClass="form-control textbox" placeholder="*Data Licenziamento" />
+            <asp:Label runat="server" Text="*Data Licenziamento"></asp:Label>
+            <asp:TextBox ID="datalic_txt" runat="server" type="text" CssClass="form-control textbox" placeholder="*Data Licenziamento" TextMode="Date" />
+        </div>
+        <div>
+            <asp:Label runat="server" Text="Tipo dipendente"></asp:Label>
+            <asp:DropDownList ID="ddlTipiDipendenti" runat="server"></asp:DropDownList>
 
             <asp:TextBox ID="pIVA_txt" runat="server" type="text" CssClass="form-control textbox" placeholder="*Partita IVA" />
 
             <asp:TextBox ID="salario_txt" runat="server" type="text" CssClass="form-control textbox" placeholder="*Salario" />
-
-            <asp:Label runat="server" Text="Tipo dipendente"></asp:Label>
-            <asp:DropDownList ID="ddlTipiDipendenti" runat="server"></asp:DropDownList>
         </div>
         <div>
             <asp:TextBox ID="telefono_txt" runat="server" type="text" CssClass="form-control textbox" placeholder="Telefono" />
@@ -39,12 +42,12 @@
         <div>
             <asp:Label runat="server" Text="Abilitazione"></asp:Label>
             &nbsp; &nbsp; &nbsp;
-            <asp:RadioButton id="rad_si" runat="server" text="si" GroupName="Condizioni"></asp:RadioButton>
+            <asp:RadioButton ID="rad_si" runat="server" Text="si" GroupName="Condizioni"></asp:RadioButton>
             &nbsp;
-            <asp:RadioButton id="rad_no" runat="server" text="no" GroupName="Condizioni"></asp:RadioButton>
+            <asp:RadioButton ID="rad_no" runat="server" Text="no" GroupName="Condizioni"></asp:RadioButton>
         </div>
     </div>
     <p>*facoltativi</p>
-    <asp:Button runat="server" ID="btnConfirma" CssClass="button" Text="Conferma" OnClick="btnConfirma_Click"  />
+    <asp:Button runat="server" ID="btnConfirma" CssClass="button" Text="Conferma" OnClick="btnConfirma_Click" />
 </asp:Content>
 

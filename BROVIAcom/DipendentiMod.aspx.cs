@@ -28,8 +28,11 @@ public partial class DipendentiMod : System.Web.UI.Page
         nome_txt.Text = dt.Rows[0]["Nome"].ToString();
         cognome_txt.Text = dt.Rows[0]["Cognome"].ToString();
         USR_txt.Text = dt.Rows[0]["USR"].ToString();
-        dataass_txt.Text = dt.Rows[0]["Data_Assunzione"].ToString();
-        datalic_txt.Text = dt.Rows[0]["Data_Licenziamento"].ToString();
+        dataass_txt.Text = Convert.ToDateTime(dt.Rows[0]["Data_Assunzione"]).ToString("yyyy-MM-dd");
+        if (dt.Rows[0]["Data_Licenziamento"].ToString() == null)
+        {
+            datalic_txt.Text = Convert.ToDateTime(dt.Rows[0]["Data_Licenziamento"]).ToString("yyyy-MM-dd");
+        }
         codfiscale_txt.Text = dt.Rows[0]["Codice_Fiscale"].ToString();
         salario_txt.Text = dt.Rows[0]["Salario"].ToString();
         telefono_txt.Text = dt.Rows[0]["Telefono"].ToString();
@@ -69,18 +72,18 @@ public partial class DipendentiMod : System.Web.UI.Page
         d.Codice_Fiscale = codfiscale_txt.Text.Trim();
         d.P_IVA = pIVA_txt.Text.Trim();
         d.Data_Assunzione = DateTime.Parse(dataass_txt.Text.Trim());
-        if (datalic_txt.Text.Trim() !="" )
-        d.Data_Licenziamento = DateTime.Parse(datalic_txt.Text.Trim());
-        
+        if (datalic_txt.Text.Trim() != "")
+            d.Data_Licenziamento = DateTime.Parse(datalic_txt.Text.Trim());
 
-        d.Salario = decimal.Parse( salario_txt.Text.Trim());
-        d.Cod_Tipo_Dipendente =int.Parse(ddlTipiDipendenti.SelectedValue);
+
+        d.Salario = decimal.Parse(salario_txt.Text.Trim());
+        d.Cod_Tipo_Dipendente = int.Parse(ddlTipiDipendenti.SelectedValue);
         d.Telefono = telefono_txt.Text.Trim();
         d.Citta = citta_txt.Text.Trim();
         d.CAP = CAP_txt.Text.Trim();
         d.Indirizzo = indirizzo_txt.Text.Trim();
         d.USR = USR_txt.Text.Trim();
-        if(rad_si.Checked)
+        if (rad_si.Checked)
         {
             d.Abilitato = true;
         }

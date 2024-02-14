@@ -4,16 +4,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <h2>Dipendenti</h2>
-    <p>&nbsp;</p>
-    <div class="linker">
-        <a href="DipendentiIns.aspx">.Inserisci</a>
-        <a href="DipendentiMod.aspx">.Mododifica</a>
-    </div>
     <br />
+            <a href="DipendentiIns.aspx" Class="button">Inserisci</a>
     <br />
-        <asp:TextBox ID="cerca" runat="server" type="text" CssClass="form-control textbox" Style="width: 200px" placeholder="Cerca dipendente" AutoPostBack="true" OnTextChanged="Page_Load"></asp:TextBox> <%--USARE INVIO--%>
+    <h4>Cerca</h4>
+        <asp:TextBox ID="cerca" runat="server" type="text" CssClass="form-control textbox" Style="width: 200px" placeholder="Cognome dipendente" AutoPostBack="true" OnTextChanged="Page_Load"></asp:TextBox> <%--USARE INVIO--%>
     <br />
-    <div id="divino" class="table-container">
+    <div class="table-container">
         <asp:GridView ID="GridView1" CssClass="gridview" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" DataKeyNames="Cod_Dipendente">
             <Columns>
                 <asp:CommandField SelectText="Modifica" ShowSelectButton="True" ButtonType="Button"></asp:CommandField>
