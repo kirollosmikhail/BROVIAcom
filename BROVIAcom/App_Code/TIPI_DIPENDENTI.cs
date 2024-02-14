@@ -20,4 +20,18 @@ public class TIPI_DIPENDENTI
         c.EseguiSelect();
         return c.dt;
     }
+    public void TipiDipendentiIns()
+    {
+        CONNESSIONE c = new CONNESSIONE();
+        c.querydicomando = "TipiDipendentiIns";
+        c.cmd.Parameters.AddWithValue("@Tipo_Dipendente", Tipo_Dipendente);
+        c.EseguiComando();
+    }
+    public void TipiDipendentiElimina()
+    {
+        CONNESSIONE c = new CONNESSIONE();
+        c.querydicomando = "TipiDipendentiElimina";
+        c.cmd.Parameters.AddWithValue("@Cod_Tipo_Dipendente", Cod_Tipo_Dipendente);
+        c.EseguiComando();
+    }
 }
