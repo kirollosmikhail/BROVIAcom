@@ -5,9 +5,7 @@ using System.Data.SqlTypes;
 using System.Linq;
 using System.Web;
 
-/// <summary>
-/// Summary description for DIPENDENTI
-/// </summary>
+
 public class DIPENDENTI
 {
     public int Cod_Dipendente;

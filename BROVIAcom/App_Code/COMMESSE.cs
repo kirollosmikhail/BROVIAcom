@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-/// <summary>
-/// Summary description for COMMESSE
-/// </summary>
+
 public class COMMESSE
 {
     public int Cod_Commessa;
@@ -22,9 +20,5 @@ public class COMMESSE
     {
         
     }
-    //jvivxcmx
-    //    vxcòv
-    //    xòbvx
-    //    òbv
-    //    //xò
+    
 }
