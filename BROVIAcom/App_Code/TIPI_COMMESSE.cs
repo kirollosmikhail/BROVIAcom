@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -12,5 +13,12 @@ public class TIPI_COMMESSE
     public TIPI_COMMESSE()
     {
         
+    }
+    public DataTable TipiCommesseSelect()
+    {
+        CONNESSIONE c = new CONNESSIONE();
+        c.querydiselezione = "TipiCommesseSelect";
+        c.EseguiSelect();
+        return c.dt;
     }
 }
