@@ -9,9 +9,15 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        EventiSelect();
     }
 
+    protected void EventiSelect()
+    {
+        EVENTI V = new EVENTI();
+        GridView1.DataSource=V.EventiSelect();
+        GridView1.DataBind();
+    }
     protected void btnElimena_Click(object sender, EventArgs e)
     {
         EVENTI v = new EVENTI();
