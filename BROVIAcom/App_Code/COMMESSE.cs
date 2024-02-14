@@ -34,7 +34,7 @@ public class COMMESSE
     public DataTable CommesseCerca()
     {
         CONNESSIONE c = new CONNESSIONE();
-        c.querydicomando = "CommesseCerca";
+        c.querydiselezione = "CommesseCerca";
         c.cmd.Parameters.AddWithValue("@Cod_Tipo_Commessa", Cod_Tipo_Commessa);
         if(Ragione_Sociale=="")
             c.cmd.Parameters.AddWithValue("@Ragione_Sociale", DBNull.Value);
@@ -42,7 +42,7 @@ public class COMMESSE
             c.cmd.Parameters.AddWithValue("@Ragione_Sociale", Ragione_Sociale);
 
 
-        c.EseguiComando();
+        c.EseguiSelect();
         return c.dt;
     }
 }
