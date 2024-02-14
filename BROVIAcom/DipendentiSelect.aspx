@@ -5,7 +5,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <h2>Dipendenti</h2>
     <br />
-            <a href="DipendentiIns.aspx" Class="button">Inserisci</a>
+            <a href="DipendentiIns.aspx" Class="button">Inserisci Nuovo Dipendente</a>
+    <br />
+    <a href="TipiDipendentiSelect.aspx" Class="button">Tipologie dipendenti</a>
     <br />
     <h4>Cerca</h4>
         <asp:TextBox ID="cerca" runat="server" type="text" CssClass="form-control textbox" Style="width: 200px" placeholder="Cognome dipendente" AutoPostBack="true" OnTextChanged="Page_Load"></asp:TextBox> <%--USARE INVIO--%>
