@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
-    <h2>Accessi</h2>
+    <h2>Eventi</h2>
     <asp:Button ID="btnElimena" runat="server" CssClass="button" Text="Elimina Tutti Record" OnClick="btnElimena_Click" />
 
     <br />
