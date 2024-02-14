@@ -37,7 +37,4 @@ public class CONNESSIONE
         conn.Close();
      
     }
-    //salveeeeee
-    //salve 2
-    //salve3
 }

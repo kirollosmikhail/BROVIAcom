@@ -37,7 +37,7 @@ public partial class DipendentiSelect : System.Web.UI.Page
 
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
-
-        Response.Redirect("DipendentiMod.aspx");
+        string Id = GridView1.SelectedValue.ToString();
+        Response.Redirect("DipendentiMod.aspx?id="+ Id);
     }
 }

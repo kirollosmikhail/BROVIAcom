@@ -25,7 +25,7 @@
             <asp:TextBox ID="salario_txt" runat="server" type="text" CssClass="form-control textbox" placeholder="*Salario" />
 
             <asp:Label runat="server" Text="Tipo dipendente"></asp:Label>
-            <asp:DropDownList runat="server"></asp:DropDownList>
+            <asp:DropDownList ID="ddlTipiDipendenti" runat="server"></asp:DropDownList>
         </div>
         <div>
             <asp:TextBox ID="telefono_txt" runat="server" type="text" CssClass="form-control textbox" placeholder="Telefono" />
@@ -45,6 +45,6 @@
         </div>
     </div>
     <p>*facoltativi</p>
-    <asp:Button runat="server" CssClass="button" Text="Conferma" />
+    <asp:Button runat="server" ID="btnConfirma" CssClass="button" Text="Conferma" OnClick="btnConfirma_Click"  />
 </asp:Content>
 
