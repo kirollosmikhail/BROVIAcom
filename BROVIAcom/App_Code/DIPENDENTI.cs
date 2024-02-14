@@ -18,7 +18,7 @@ public class DIPENDENTI
     public bool Abilitato;
     public string Codice_Fiscale;
     public string P_IVA;
-    public DateTime Data_Assunzione;
+    public DateTime? Data_Assunzione;
     public DateTime? Data_Licenziamento;
     public decimal Salario;
     public string Telefono;
@@ -102,5 +102,38 @@ public class DIPENDENTI
         c.querydicomando = "DipendentiMod";
         c.EseguiComando();
     }
+    public void DipendentiIns()
+    {
+        CONNESSIONE c = new CONNESSIONE();
+        c.cmd.Parameters.AddWithValue("@Cognome", Cognome);
+        c.cmd.Parameters.AddWithValue("@Nome", Nome);
+        c.cmd.Parameters.AddWithValue("@USR", USR);
+        c.cmd.Parameters.AddWithValue("@Abilitato", true);
+        c.cmd.Parameters.AddWithValue("@Codice_Fiscale", Codice_Fiscale);
+        c.cmd.Parameters.AddWithValue("@P_IVA", P_IVA);
+        c.cmd.Parameters.AddWithValue("@Data_Assunzione", Data_Assunzione);
+        c.cmd.Parameters.AddWithValue("@PWD", "benvenuto");
+
+        if (Data_Licenziamento != null)
+        {
+            c.cmd.Parameters.AddWithValue("@Data_Licenziamento", Data_Licenziamento);
+        }
+        else
+        {
+            c.cmd.Parameters.AddWithValue("@Data_Licenziamento", DBNull.Value);
+        }
+
+
+        c.cmd.Parameters.AddWithValue("@Salario", Salario);
+        c.cmd.Parameters.AddWithValue("@Telefono", Telefono);
+        c.cmd.Parameters.AddWithValue("@Indirizzo", Indirizzo);
+        c.cmd.Parameters.AddWithValue("@Citta", Citta);
+        c.cmd.Parameters.AddWithValue("@CAP", CAP);
+        c.cmd.Parameters.AddWithValue("@Cod_Tipo_Dipendente", Cod_Tipo_Dipendente);
+
+        c.querydicomando = "DipendentiIns";
+        c.EseguiComando();
+    }
+
 
 }

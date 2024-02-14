@@ -36,7 +36,7 @@ public partial class DipendentiMod : System.Web.UI.Page
         citta_txt.Text = dt.Rows[0]["Citta"].ToString();
         CAP_txt.Text = dt.Rows[0]["CAP"].ToString();
         indirizzo_txt.Text = dt.Rows[0]["Indirizzo"].ToString();
-        pIVA_txt.Text = dt.Rows[0]["P_IVA"].ToString();
+        pIVA_txt.Text = (dt.Rows[0]["P_IVA"].ToString()).Trim();
         if (dt.Rows[0]["Abilitato"].ToString() == "True")
         {
             rad_si.Checked = true;
