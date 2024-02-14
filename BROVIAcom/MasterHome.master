@@ -30,13 +30,13 @@
                                 <asp:Button ID="eventi_btn" class="nav-link" runat="server" Text="Eventi" />                  
                             </li>
                             <li class="nav-item">  
-                                <asp:Button ID="accessi_btn" class="nav-link" runat="server" Text="Accessi" />                  
+                                <asp:Button ID="accessi_btn" class="nav-link" runat="server" Text="Accessi" OnClick="accessi_btn_Click" />                  
                             </li>
                             <li class="nav-item">  
                                 <asp:Button ID="report_btn" class="nav-link" runat="server" Text="Report" />                  
                             </li>
                             <li class="nav-item">  
-                                <asp:Button ID="clienti_btn" class="nav-link" runat="server" Text="Clienti" />                  
+                                <asp:Button ID="clienti_btn" class="nav-link" runat="server" Text="Clienti" OnClick="clienti_btn_Click" />                  
                             </li>
                             <li class="nav-item">  
                                 <asp:Button ID="commesse_btn" class="nav-link" runat="server" Text="Commesse" />                  
