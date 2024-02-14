@@ -6,13 +6,12 @@
 
 
     <h2>Accessi</h2>
-    <asp:Button ID="btnElimena" runat="server" CssClass="button" Text="Elimena Tutti Record" OnClick="btnElimena_Click" />
+    <asp:Button ID="btnElimena" runat="server" CssClass="button" Text="Elimina Tutti Record" OnClick="btnElimena_Click" />
     
     <br />
     <div class="table-container">
         <asp:GridView ID="GridView1" CssClass="gridview" runat="server" AutoGenerateColumns="False">
             <Columns>
-                <asp:CommandField SelectText="Modifica" ShowSelectButton="True" ButtonType="Button"></asp:CommandField>
                 <asp:BoundField DataField="IP" HeaderText="IP"></asp:BoundField>
                 <asp:BoundField DataField="USR" HeaderText="USER NAME"></asp:BoundField>
                 <asp:BoundField DataField="PWD" HeaderText="PassWord"></asp:BoundField>

@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <h2>Clienti</h2>
     <br />
-            <a href="ClientiIns.aspx" Class="button">Inserisci</a>
+            <a href="ClientiIns.aspx" Class="button">Inserisci Nuovo Cliente</a>
     <br />
     <h4>Cerca</h4>
         <asp:TextBox ID="cerca" runat="server" type="text" CssClass="form-control textbox" Style="width: 200px" placeholder="Ragione Sociale Cliente" AutoPostBack="true" OnTextChanged="Page_Load"></asp:TextBox> <%--USARE INVIO--%>
