@@ -31,6 +31,13 @@ public partial class DipendentiSelect : System.Web.UI.Page
                 GridView1.DataSource = dt;
             }
         }
+
         GridView1.DataBind();
+    }
+
+    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+        Response.Redirect("DipendentiMod.aspx");
     }
 }

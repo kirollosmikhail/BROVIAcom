@@ -17,15 +17,17 @@ p {
 
 
 /*Contenitore divisore dati*/
-.divdati{
+.divdati {
 }
+
     .divdati div {
         padding-bottom: 5px;
         border-bottom: solid 1px #337ab7;
     }
-    .divdati div:last-child{
-        border:none;
-    }
+
+        .divdati div:last-child {
+            border: none;
+        }
 
 /*Contenitore sub-link*/
 .linker {
@@ -36,6 +38,7 @@ p {
         border-radius: 8px 0 0 8px;
         border-right-width: 2px;
     }
+
     .linker > a:last-child {
         margin-left: -6px;
         border-radius: 0 8px 8px 0;
@@ -53,8 +56,8 @@ p {
     }
 
         .linker a:hover {
-            position:relative;
-            z-index:2;
+            position: relative;
+            z-index: 2;
             color: rgba(255, 255, 255, 0.80);
             border-color: rgba(255, 255, 255, 0.80);
         }
@@ -104,7 +107,7 @@ h4 {
 .textbox {
     min-width: 30px;
     border: 1px solid #cce5ff;
-    margin:10px 0 10px 0;
+    margin: 10px 0 10px 0;
 }
 
 /*Nav styles*/
@@ -138,11 +141,15 @@ footer {
 
 /*Container della GridView styles*/
 .table-container {
-    width:100%;
-    min-width: 200px; 
-    overflow-x: auto; 
+    width: 100%;
+    min-width: 200px;
 }
 
+@media (max-width:1300px) {
+    .table-container {
+        overflow: auto;
+    }
+}
 /*GridView styles */
 .gridview {
     width: 100%;
@@ -156,12 +163,41 @@ footer {
         border: 1px solid #dddddd;
         padding: 8px;
         text-align: center;
-        font-size:14px;
+        font-size: 14px;
+        white-space: nowrap;
     }
 
     .gridview th {
         background-color: #cce5ff;
     }
+    /*Bottone Modifica Styles*/
+    .gridview td input {
+        background-color: #337ab7;
+        color: #ffffff;
+        border: 1px solid #337ab7;
+        padding: 6px 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s ease, border-radius 0.3s ease;
+    }
+
+        .gridview td input:hover {
+            border-radius: 15px;
+            background-color: #336799;
+            border-color: #336799;
+        }
+
+        .gridview td input:active {
+            border-radius: 15px;
+            background-color: #224465;
+            border-color: #224465;
+        }
+
 /*Button styles */
 .button {
     background-color: #337ab7;
