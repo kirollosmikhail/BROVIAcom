@@ -21,7 +21,7 @@ p {
 }
 
     .divdati div {
-        padding-top:5px;
+        padding-top: 5px;
         padding-bottom: 5px;
         border-bottom: solid 1px #337ab7;
     }
@@ -116,17 +116,8 @@ nav {
     background-color: #336799;
 }
 
-/*Header styles*/
-header {
-    height: 100px;
-    background-color: #337ab7;
-    color: #ffffff;
-    padding: 18px;
-    text-align: center;
-}
-
-    header img {
-        width: 350px;
+    nav input#home_btn {
+        width: 250px;
     }
 
 /*Footer styles*/
@@ -138,10 +129,12 @@ footer {
     bottom: 0;
     position: fixed;
     width: 100%;
+    height:40px;
 }
-footer p{
-    color:white;
-}
+
+    footer p {
+        color: white;
+    }
 
 /*Container della GridView styles*/
 .table-container {
@@ -149,7 +142,7 @@ footer p{
     min-width: 200px;
 }
 
-@media (max-width:1550px) {
+@media (max-width:2000px) {
     .table-container {
         overflow: auto;
     }
@@ -167,7 +160,7 @@ footer p{
         border: 1px solid #dddddd;
         padding: 8px;
         text-align: center;
-        font-size: 14px;
+        font-size: 0.8em;
         white-space: nowrap;
     }
 
