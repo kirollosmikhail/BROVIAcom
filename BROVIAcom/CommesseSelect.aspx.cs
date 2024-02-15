@@ -16,14 +16,17 @@ public partial class CommesseSelect : System.Web.UI.Page
         }
 
         COMMESSE c = new COMMESSE();
-        if (cerca.Text == ""&& int.Parse(ddlTipiCommesse.SelectedValue)==0)
+        if (cerca.Text == ""&& ddlTipiCommesse.SelectedValue== "-Tutte-")
         {
             GridView1.DataSource = c.CommesseSelect();
         }
         else
         {
             c.Ragione_Sociale = cerca.Text;
-            c.Cod_Tipo_Commessa = int.Parse(ddlTipiCommesse.SelectedValue);
+            if(ddlTipiCommesse.SelectedValue == "-Tutte-")
+                c.Cod_Tipo_Commessa = 0;
+            else
+                c.Cod_Tipo_Commessa = int.Parse(ddlTipiCommesse.SelectedValue);
             DataTable dt = c.CommesseCerca();
 
             if (dt.Rows.Count == 0)
@@ -48,7 +51,7 @@ public partial class CommesseSelect : System.Web.UI.Page
         ddlTipiCommesse.DataValueField = "Cod_Tipo_Commessa";
         ddlTipiCommesse.DataBind();
         ListItem vuoto = new ListItem();
-        vuoto.Value = "0";
+        vuoto.Value = "-Tutte-";
         ddlTipiCommesse.Items.Insert(0, vuoto);
     }
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)

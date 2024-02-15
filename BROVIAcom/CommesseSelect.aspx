@@ -3,11 +3,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-     <h2>Dipendenti</h2>
+     <h2>Commesse</h2>
  <br />
-         <a href="DipendentiIns.aspx" Class="button">Inserisci Nuovo Dipendente</a>
+         <a href="CommesseIns.aspx" Class="button">Inserisci Nuova Commessa</a>
  <br />
- <a href="TipiDipendentiSelect.aspx" Class="button">Tipologie dipendenti</a>
+ <a href="TipiCommesseSelect.aspx" Class="button">Tipologie Comesse</a>
  <br />
  <h4>Cerca</h4>
      <asp:TextBox ID="cerca" runat="server" type="text" CssClass="form-control textbox" Style="width: 200px" placeholder="Ragione Sociale" AutoPostBack="true" OnTextChanged="Page_Load"></asp:TextBox> <%--USARE INVIO--%>

@@ -27,19 +27,19 @@
                                 <asp:Button ID="dipendenti_btn" class="nav-link" runat="server" Text="Dipendenti" OnClick="dipendenti_btn_Click" />                  
                             </li>
                             <li class="nav-item">  
-                                <asp:Button ID="eventi_btn" class="nav-link" runat="server" Text="Eventi" />                  
+                                <asp:Button ID="eventi_btn" class="nav-link" runat="server" Text="Eventi" OnClick="eventi_btn_Click" />                  
                             </li>
                             <li class="nav-item">  
                                 <asp:Button ID="accessi_btn" class="nav-link" runat="server" Text="Accessi" OnClick="accessi_btn_Click" />                  
                             </li>
                             <li class="nav-item">  
-                                <asp:Button ID="report_btn" class="nav-link" runat="server" Text="Report" />                  
+                                <asp:Button ID="report_btn" class="nav-link" runat="server" Text="Report" OnClick="report_btn_Click" />                  
                             </li>
                             <li class="nav-item">  
                                 <asp:Button ID="clienti_btn" class="nav-link" runat="server" Text="Clienti" OnClick="clienti_btn_Click" />                  
                             </li>
                             <li class="nav-item">  
-                                <asp:Button ID="commesse_btn" class="nav-link" runat="server" Text="Commesse" />                  
+                                <asp:Button ID="commesse_btn" class="nav-link" runat="server" Text="Commesse" OnClick="commesse_btn_Click" />                  
                             </li>
                             <li class="nav-item">  
                                 <asp:Button ID="fatture_btn" class="nav-link" runat="server" Text="Fatture" />                  

@@ -36,4 +36,20 @@ public partial class MasterHome : System.Web.UI.MasterPage
     {
         Response.Redirect("AccessiSelect.aspx");
     }
+
+    protected void commesse_btn_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("CommesseSelect.aspx");
+    }
+
+    protected void eventi_btn_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("EventiSelect.aspx");
+    }
+
+    protected void report_btn_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ReportSelect.aspx");
+    }
 }
+

@@ -11,7 +11,7 @@ hr {
 }
 
 p {
-    color: white;
+    color: rgba(51, 122, 183, 0.55);
 }
 
 
@@ -138,6 +138,9 @@ footer {
     bottom: 0;
     position: fixed;
     width: 100%;
+}
+footer p{
+    color:white;
 }
 
 /*Container della GridView styles*/
