@@ -3,6 +3,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <h2>Home</h2>
+    <header>
+        <img src="img/BROVIAcom.png" stlyle="width:450px"/>
+    </header>
+    <br />
+    <br />
+    <br />
+    <div class="quote">Guidati dall'<i>innovazione</i>, ispirati dall'<i>eccellenza</i>.</div>
 </asp:Content>
 
