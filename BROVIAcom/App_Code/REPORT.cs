@@ -55,4 +55,15 @@ public class REPORT
 
         c.EseguiComando() ;
     }
+
+    public DataTable ReportVerifica()
+    {
+        CONNESSIONE c = new CONNESSIONE();
+        c.querydiselezione = "ReportVerifica";
+        c.cmd.Parameters.AddWithValue("@Data_Report", Data_Report);
+        c.cmd.Parameters.AddWithValue("@Cod_Dipendente", Cod_Dipendente);
+
+        c.EseguiSelect();
+        return c.dt;
+    }
 }
