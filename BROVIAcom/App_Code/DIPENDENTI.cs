@@ -133,5 +133,13 @@ public class DIPENDENTI
         c.EseguiComando();
     }
 
+    public DataTable SessionSelectDipendenti()
+    {
+        CONNESSIONE c = new CONNESSIONE();
+        c.querydiselezione = "SessionSelectDipendenti";
+        c.cmd.Parameters.AddWithValue("@Cod_Dipendente", Cod_Dipendente);
 
+        c.EseguiSelect();
+        return c.dt;
+    }
 }
