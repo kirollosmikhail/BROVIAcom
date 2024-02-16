@@ -12,15 +12,15 @@ public partial class _Default : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-        SessionDipendenti();
-        ddlCommesseSelect();
+            SessionDipendenti();
+            ddlCommesseSelect();
         }
     }
 
     protected void SessionDipendenti()
     {
         DIPENDENTI d = new DIPENDENTI();
-        d.Cod_Dipendente = int.Parse(Session["Cod_Dipendente"].ToString());
+        d.Cod_Dipendente = 6;//int.Parse(Session["Cod_Dipendente"].ToString());
         DataTable dt = d.SessionSelectDipendenti();
         lblCognome.Text = dt.Rows[0]["Cognome"].ToString();
         lblNome.Text = dt.Rows[0]["Nome"].ToString();
@@ -35,14 +35,27 @@ public partial class _Default : System.Web.UI.Page
         ddlCommessa.DataBind();
     }
 
-    protected void btnConferma_Click(object sender, EventArgs e)
+    protected int ReportVerifica()
     {
         REPORT r = new REPORT();
         r.Data_Report = DateTime.Parse(txtDataReport.Text);
         r.Cod_Dipendente = 6;//int.Parse(Session["Cod_Dipendente"].ToString());
-        r.ReportIns();
+
+        DataTable dt = r.ReportVerifica();
+        if (dt.Rows.Count == 0)
+        {
+            r.ReportIns();
+            dt = r.ReportVerifica();
+            return int.Parse(dt.Rows[0]["Cod_Report"].ToString());
+        }
+        return int.Parse(dt.Rows[0]["Cod_Report"].ToString());
+    }
+
+    protected void btnConferma_Click(object sender, EventArgs e)
+    {
 
         LAVORI l = new LAVORI();
+        l.Cod_Report = ReportVerifica();
         l.Cod_Commessa = int.Parse(ddlCommessa.SelectedValue);
         l.Descrizione_Lavoro = txtDesLavoro.Text;
         l.Ore = l.ConvertiOre(txtOre.Text);
