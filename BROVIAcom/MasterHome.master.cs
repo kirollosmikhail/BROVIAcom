@@ -51,5 +51,10 @@ public partial class MasterHome : System.Web.UI.MasterPage
     {
         Response.Redirect("ReportSelect.aspx");
     }
+
+    protected void fatture_btn_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("FattureSelect.aspx");
+    }
 }
 

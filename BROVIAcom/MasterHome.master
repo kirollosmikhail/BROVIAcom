@@ -42,7 +42,7 @@
                                 <asp:Button ID="commesse_btn" class="nav-link" runat="server" Text="Commesse" OnClick="commesse_btn_Click" />                  
                             </li>
                             <li class="nav-item">  
-                                <asp:Button ID="fatture_btn" class="nav-link" runat="server" Text="Fatture" />                  
+                                <asp:Button ID="fatture_btn" class="nav-link" runat="server" Text="Fatture" OnClick="fatture_btn_Click" />                  
                             </li>
                         </ul>
                         <asp:Button ID="logout_btn" class="navbar-nav nav-link" runat="server" Text="Logout" OnClick="Logout_btn_Click" />                   

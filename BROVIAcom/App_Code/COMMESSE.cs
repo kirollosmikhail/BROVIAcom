@@ -31,6 +31,14 @@ public class COMMESSE
         c.EseguiSelect();
         return c.dt;
     }
+    public DataTable CommesseDDL()
+    {
+        CONNESSIONE c = new CONNESSIONE();
+        c.querydiselezione = "CommesseDDL";
+
+        c.EseguiSelect();
+        return c.dt;
+    }
     public DataTable CommesseCerca()
     {
         CONNESSIONE c = new CONNESSIONE();
