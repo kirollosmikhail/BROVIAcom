@@ -6,42 +6,66 @@
     <h2>Modifica Report</h2>
     <br />
     <div class="divdati">
-        <div>
-            <asp:Label ID="lblDataReport" runat="server" Text=""></asp:Label>
-            <br />
-            <asp:Label ID="lblCognome" runat="server" Text=""></asp:Label>
-            <asp:Label ID="lblNome" runat="server" Text=""></asp:Label>
-            <br />
-            <asp:Label runat="server" Text="Commessa"></asp:Label>
-            <asp:DropDownList ID="ddlCommessa" runat="server"></asp:DropDownList>
-            <br />
-            <asp:TextBox ID="txtDesLavoro" runat="server" type="text" CssClass="form-control textbox" placeholder="Descrizione del lavoro svolto" TextMode="MultiLine" />
+        <div class="contdati">
 
-            <asp:TextBox ID="txtOre" runat="server" type="text" CssClass="form-control textbox" placeholder="Numero di ore" TextMode="Time" />
+            <div>
+                <asp:Label ID="lblCognome" runat="server" Text="ciao"></asp:Label>
+            </div>
+            <div>
+                <asp:Label ID="lblNome" runat="server" Text="tutto"></asp:Label>
+            </div>
+            <div>
+                <asp:Label ID="lblDataReport" runat="server" Text="oooo"></asp:Label>
+            </div>
         </div>
-        <div>
-
-            <asp:TextBox ID="txtSpesaPasto" runat="server" type="text" CssClass="form-control textbox" placeholder="*Spesa Pasto" />
-
-            <asp:TextBox ID="txtSpesaTrasporto" runat="server" type="text" CssClass="form-control textbox" placeholder="*Spesa Trasporto" />
-
-            <asp:TextBox ID="txtSpesaPedaggi" runat="server" type="text" CssClass="form-control textbox" placeholder="*Spesa Pedaggi" />
-
-            <asp:TextBox ID="txtSpesaPernottamento" runat="server" type="text" CssClass="form-control textbox" placeholder="*Spesa Pernottamento" />
-
-            <asp:TextBox ID="txtSpesaExtra" runat="server" type="text" CssClass="form-control textbox" placeholder="*Spesa Extra" />
-
-            <asp:TextBox ID="txtDesSpesaExtra" runat="server" type="text" CssClass="form-control textbox" placeholder="*Descrizione della spesa Extra" TextMode="MultiLine" />
-
+        <div class="contdati">
+            <div>
+                <asp:Label runat="server" Text="Commessa"></asp:Label>
+                <asp:DropDownList ID="ddlCommessa" runat="server" CssClass="form-control textbox"></asp:DropDownList>
+            </div>
+            <div>
+                <asp:Label runat="server" Text="Descrizione del lavoro svolto"></asp:Label>
+                <asp:TextBox ID="txtDesLavoro" runat="server" type="text" CssClass="form-control textbox" placeholder="Descrizione del lavoro svolto" TextMode="MultiLine" />
+            </div>
+            <div>
+                <asp:Label runat="server" Text="Numero di ore"></asp:Label>
+                <asp:TextBox ID="txtOre" runat="server" type="text" CssClass="form-control textbox" placeholder="Numero di ore" TextMode="Time" />
+            </div>
         </div>
-        <div>
-            <asp:Label runat="server" Text="Controllo"></asp:Label>
-            <asp:DropDownList ID="ddlControlli" runat="server"></asp:DropDownList>
-
-            <asp:Button ID="btnConferma" runat="server" CssClass="button" Text="Conferma Report" OnClick="btnConferma_Click" />
+        <div class="contdati">
+            <div>
+                <asp:Label runat="server" Text="*Spesa Pasto"></asp:Label>
+                <asp:TextBox ID="txtSpesaPasto" runat="server" type="text" CssClass="form-control textbox" placeholder="*Spesa Pasto" />
+            </div>
+            <div>
+                <asp:Label runat="server" Text="*Spesa Trasporto"></asp:Label>
+                <asp:TextBox ID="txtSpesaTrasporto" runat="server" type="text" CssClass="form-control textbox" placeholder="*Spesa Trasporto" />
+            </div>
+            <div>
+                <asp:Label runat="server" Text="*Spesa Pedaggi"></asp:Label>
+                <asp:TextBox ID="txtSpesaPedaggi" runat="server" type="text" CssClass="form-control textbox" placeholder="*Spesa Pedaggi" />
+            </div>
+            <div>
+                <asp:Label runat="server" Text="*Spesa Pernottamento"></asp:Label>
+                <asp:TextBox ID="txtSpesaPernottamento" runat="server" type="text" CssClass="form-control textbox" placeholder="*Spesa Pernottamento" />
+            </div>
+            <div>
+                <asp:Label runat="server" Text="*Spesa Extra"></asp:Label>
+                <asp:TextBox ID="txtSpesaExtra" runat="server" type="text" CssClass="form-control textbox" placeholder="*Spesa Extra" />
+            </div>
+            <div>
+                <asp:Label runat="server" Text="*Descrizione della spesa Extra"></asp:Label>
+                <asp:TextBox ID="txtDesSpesaExtra" runat="server" type="text" CssClass="form-control textbox" placeholder="*Descrizione della spesa Extra" TextMode="MultiLine" />
+            </div>
         </div>
-
-        <p>*facoltativi</p>
+        <div id="" class="contdati" runat="server" visible="false">
+            <div>
+                <asp:Label runat="server" Text="Controllo"></asp:Label>
+                <asp:DropDownList ID="ddlControlli" runat="server" CssClass="form-control textbox"></asp:DropDownList>
+            </div>
+        </div>
     </div>
+    <p>*facoltativi</p>
+    <asp:Button ID="btnConferma" runat="server" CssClass="button" Text="Conferma Report" OnClick="btnConferma_Click" />
 </asp:Content>
 

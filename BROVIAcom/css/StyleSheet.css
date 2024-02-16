@@ -28,15 +28,47 @@ p {
 .divdati {
 }
 
-    .divdati div {
-        padding-top: 5px;
+    .divdati .contdati {
+        padding-top: 10px;
         padding-bottom: 5px;
         border-bottom: solid 1px #337ab7;
     }
 
-        .divdati div:last-child {
+        .divdati .contdati:last-child {
             border: none;
         }
+
+.contdati div:not([id]) {
+    border-left: 1px solid rgba(51, 122, 183, 0.5);
+    border-radius: 5px;
+    padding-left: 10px;
+    margin-left: 5px;
+    background: linear-gradient(to right, rgba(51, 122, 183, 0.2), rgba(51, 122, 183, 0));
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.divrad {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+    padding-left:40px;
+    padding-right:40px;
+}
+
+.contdati .textbox {
+    margin: 0px;
+    width:50%;
+}
+
+.contdati span {
+    white-space: nowrap;
+}
 
 /*Contenitore sub-link*/
 .linker {
@@ -153,7 +185,7 @@ footer {
     bottom: 0;
     position: fixed;
     width: 100%;
-    height:40px;
+    height: 40px;
 }
 
     footer p {
