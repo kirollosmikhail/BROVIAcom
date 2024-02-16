@@ -14,7 +14,7 @@ public class REPORT
 
     public REPORT()
     {
-        
+
     }
 
     public DataTable ReportSelect()
@@ -26,7 +26,7 @@ public class REPORT
         return c.dt;
     }
 
-    public void ReportMod() 
+    public void ReportMod()
     {
         CONNESSIONE c = new CONNESSIONE();
         c.querydicomando = "ReportMod";
@@ -53,7 +53,7 @@ public class REPORT
         c.cmd.Parameters.AddWithValue("@Data_Report", Data_Report);
         c.cmd.Parameters.AddWithValue("@Cod_Dipendente", Cod_Dipendente);
 
-        c.EseguiComando() ;
+        c.EseguiComando();
     }
 
     public DataTable ReportVerifica()
@@ -62,6 +62,25 @@ public class REPORT
         c.querydiselezione = "ReportVerifica";
         c.cmd.Parameters.AddWithValue("@Data_Report", Data_Report);
         c.cmd.Parameters.AddWithValue("@Cod_Dipendente", Cod_Dipendente);
+
+        c.EseguiSelect();
+        return c.dt;
+    }
+
+    public DataTable ReportApprovati()
+    {
+        CONNESSIONE c = new CONNESSIONE();
+        c.querydiselezione = "ReportApprovati";
+
+        c.EseguiSelect();
+        return c.dt;
+    }
+
+    public DataTable ReportCerca()
+    {
+        CONNESSIONE c = new CONNESSIONE();
+        c.querydiselezione = "LavoriCerca";
+        c.cmd.Parameters.AddWithValue("@Data_Report", Data_Report);
 
         c.EseguiSelect();
         return c.dt;

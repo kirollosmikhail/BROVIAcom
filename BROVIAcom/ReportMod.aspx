@@ -58,7 +58,7 @@
                 <asp:TextBox ID="txtDesSpesaExtra" runat="server" type="text" CssClass="form-control textbox" placeholder="*Descrizione della spesa Extra" TextMode="MultiLine" />
             </div>
         </div>
-        <div id="" class="contdati" runat="server" visible="false">
+        <div id="amministrazione" class="contdati" runat="server" visible="false">
             <div>
                 <asp:Label runat="server" Text="Controllo"></asp:Label>
                 <asp:DropDownList ID="ddlControlli" runat="server" CssClass="form-control textbox"></asp:DropDownList>
@@ -67,5 +67,6 @@
     </div>
     <p>*facoltativi</p>
     <asp:Button ID="btnConferma" runat="server" CssClass="button" Text="Conferma Report" OnClick="btnConferma_Click" />
+    <asp:Label ID="lblcodReport" runat="server" Visible="false" Text="Controllo"></asp:Label>
 </asp:Content>
 
