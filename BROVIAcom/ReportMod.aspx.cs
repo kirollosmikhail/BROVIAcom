@@ -12,6 +12,7 @@ public partial class _Default : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
+            SessionDipendenti();
             ddlControllo();
             ddlCommesseSelect();
             RiempiCampi();
@@ -42,6 +43,8 @@ public partial class _Default : System.Web.UI.Page
         l.Cod_Lavoro = int.Parse(Request.QueryString["cod"].ToString());
         DataTable dt = l.LavoriCercaSelect();
         ddlCommessa.SelectedValue = dt.Rows[0]["Cod_Commessa"].ToString();
+        lblcodReport.Text = dt.Rows[0]["Cod_Report"].ToString();
+
         lblDataReport.Text = Convert.ToDateTime(dt.Rows[0]["Data_Report"]).ToString();
         lblCognome.Text = dt.Rows[0]["Cognome"].ToString();
         lblNome.Text = dt.Rows[0]["Nome"].ToString();
@@ -56,7 +59,24 @@ public partial class _Default : System.Web.UI.Page
         txtSpesaPernottamento.Text = dt.Rows[0]["Spesa_Pernottamento"].ToString();
         txtSpesaExtra.Text = dt.Rows[0]["Spesa_Extra"].ToString();
         txtDesSpesaExtra.Text = dt.Rows[0]["Descrizione_Spesa_Extra"].ToString();
+        ddlControlli.SelectedValue = dt.Rows[0]["Cod_Controllo"].ToString();
     }
+
+    protected void SessionDipendenti()
+    {
+        DIPENDENTI d = new DIPENDENTI();
+        d.Cod_Dipendente = 1;//int.Parse(Session["Cod_Dipendente"].ToString());
+        DataTable dt = d.SessionSelectDipendenti();
+        if (dt.Rows[0]["Cod_Tipo_Dipendente"].ToString() == "1" || dt.Rows[0]["Cod_Tipo_Dipendente"].ToString() == "2")
+        {
+            amministrazione.Visible = true;
+        }
+        else
+        {
+            amministrazione.Visible = false;
+        }
+    }
+
 
     protected void btnConferma_Click(object sender, EventArgs e)
     {
@@ -69,7 +89,7 @@ public partial class _Default : System.Web.UI.Page
         if (txtSpesaPasto.Text == "")
             l.Spesa_Pasto = 0;
         else
-        l.Spesa_Pasto = decimal.Parse(txtSpesaPasto.Text);
+            l.Spesa_Pasto = decimal.Parse(txtSpesaPasto.Text);
 
         if (txtSpesaTrasporto.Text == "")
             l.Spesa_Trasporto = 0;
@@ -96,13 +116,21 @@ public partial class _Default : System.Web.UI.Page
         l.LavoriMod();
 
 
+        DIPENDENTI d = new DIPENDENTI();
+        d.Cod_Dipendente = 1;//int.Parse(Session["Cod_Dipendente"].ToString());
+        DataTable dt = d.SessionSelectDipendenti();
+        if (dt.Rows[0]["Cod_Tipo_Dipendente"].ToString() == "1" || dt.Rows[0]["Cod_Tipo_Dipendente"].ToString() == "2")
+        {
+            amministrazione.Visible = true;
+            REPORT r = new REPORT();
+            r.Cod_Controllo = int.Parse(ddlControlli.SelectedValue);
+            r.Cod_Report = int.Parse(lblcodReport.Text);
+            r.ReportMod();
+        }
+        else
+        {
+            amministrazione.Visible = false;
+        }
 
-
-
-        //r.Cod_Report = int.Parse(Request.QueryString["cod"].ToString());
-        ////solo per amministrazione
-        //r.Cod_Controllo = int.Parse(ddlControlli.SelectedValue);
-
-        //r.ReportMod();
     }
 }
