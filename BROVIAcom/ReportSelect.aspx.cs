@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -12,10 +13,28 @@ public partial class _Default : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-           
+            ReportApprovati();
             SessionDipendenti();
         }
 
+
+        REPORT r = new REPORT();
+        if (Cerca2.Text.Trim() != "")
+        {
+            DateTime dataMinimaSupportata = new DateTime(1753, 1, 1);
+            DateTime dataMassimaSupportata = new DateTime(9999, 12, 31);
+
+            if (DateTime.Parse(Cerca2.Text.Trim()) < dataMinimaSupportata || DateTime.Parse(Cerca2.Text.Trim()) > dataMassimaSupportata)
+            {
+                GridView1.DataSource = r.ReportSelect();
+            }
+            else
+            {
+                r.Data_Report = DateTime.Parse(Cerca2.Text.Trim());
+                GridView1.DataSource = r.ReportCerca();
+            }
+        }
+        GridView1.DataBind();
     }
 
     protected void ReportSelect()
@@ -54,4 +73,14 @@ public partial class _Default : System.Web.UI.Page
         GridView1.DataSource = r.ReportDipendentiSelect();
         GridView1.DataBind();
     }
+
+    protected void ReportApprovati()
+    {
+        REPORT r = new REPORT();
+        r.Cod_Dipendente = 6;
+        GridView2.DataSource = r.ReportApprovati();
+        GridView2.DataBind();
+    }
+
+
 }

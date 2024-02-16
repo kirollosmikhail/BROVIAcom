@@ -117,7 +117,7 @@ public partial class _Default : System.Web.UI.Page
 
 
         DIPENDENTI d = new DIPENDENTI();
-        d.Cod_Dipendente = 1;//int.Parse(Session["Cod_Dipendente"].ToString());
+        d.Cod_Dipendente = 6;//int.Parse(Session["Cod_Dipendente"].ToString());
         DataTable dt = d.SessionSelectDipendenti();
         if (dt.Rows[0]["Cod_Tipo_Dipendente"].ToString() == "1" || dt.Rows[0]["Cod_Tipo_Dipendente"].ToString() == "2")
         {
@@ -133,4 +133,6 @@ public partial class _Default : System.Web.UI.Page
         }
 
     }
+
+   
 }
