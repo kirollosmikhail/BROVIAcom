@@ -40,4 +40,9 @@ public partial class DipendentiSelect : System.Web.UI.Page
         string Id = GridView1.SelectedValue.ToString();
         Response.Redirect("DipendentiMod.aspx?id="+ Id);
     }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+
+    }
 }
