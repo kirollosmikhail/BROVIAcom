@@ -33,8 +33,8 @@ public partial class _Default : System.Web.UI.Page
                 r.Data_Report = DateTime.Parse(Cerca2.Text.Trim());
                 GridView1.DataSource = r.ReportCerca();
             }
+            GridView1.DataBind();
         }
-        GridView1.DataBind();
     }
 
     protected void ReportSelect()
@@ -53,11 +53,13 @@ public partial class _Default : System.Web.UI.Page
     protected void SessionDipendenti()
     {
         DIPENDENTI d = new DIPENDENTI();
-        d.Cod_Dipendente = 6;//int.Parse(Session["Cod_Dipendente"].ToString());
+        d.Cod_Dipendente = 1;//int.Parse(Session["Cod_Dipendente"].ToString());
         DataTable dt = d.SessionSelectDipendenti();
         if (dt.Rows[0]["Cod_Tipo_Dipendente"].ToString() == "1" || dt.Rows[0]["Cod_Tipo_Dipendente"].ToString() == "2")
         {
             Inserisci.Visible = false;
+            reportApprovati.Visible = false;
+            GridView2.Visible = false;
             ReportSelect();
         }
         else

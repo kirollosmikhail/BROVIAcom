@@ -116,6 +116,8 @@ public partial class _Default : System.Web.UI.Page
         l.LavoriMod();
 
 
+
+
         DIPENDENTI d = new DIPENDENTI();
         d.Cod_Dipendente = 6;//int.Parse(Session["Cod_Dipendente"].ToString());
         DataTable dt = d.SessionSelectDipendenti();
