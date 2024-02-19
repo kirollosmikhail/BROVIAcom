@@ -5,10 +5,10 @@
 
     // Funzione per verificare se la larghezza della finestra è inferiore alla larghezza di .table-container
     function checkWidth() {
-        var tableContainer = document.querySelector('.table-container');
+        var table = document.querySelector('.table-container').querySelector('table');
     var windowWidth = getWindowWidth();
 
-    if (windowWidth < tableContainer.offsetWidth) {
+    if (windowWidth < table.offsetWidth) {
         // La larghezza della finestra è inferiore alla larghezza di .table-container
         // Rimuovi la classe overflow-auto se presente
         tableContainer.classList.remove('overflow-auto');
