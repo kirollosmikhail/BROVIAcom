@@ -31,21 +31,31 @@ public partial class FattureSelect : System.Web.UI.Page
         }
         else
         {
-            if (Cerca2.Text.Trim() != "")
+            if (!string.IsNullOrEmpty(Cerca2.Text.Trim()))
             {
-                DateTime dataMinimaSupportata = new DateTime(1753, 1, 1);
-                DateTime dataMassimaSupportata = new DateTime(9999, 12, 31);
-
-                if (DateTime.Parse(Cerca2.Text.Trim()) < dataMinimaSupportata || DateTime.Parse(Cerca2.Text.Trim()) > dataMassimaSupportata)
+                string[] parts = Cerca2.Text.Trim().Split('/');
+                if (parts.Length == 2 && int.TryParse(parts[0], out int month) && int.TryParse(parts[1], out int year))
                 {
-                    GridView1.DataSource = f.FattureSelect();
+                    if (month >= 1 && month <= 12 && year >= 1753 && year <= 9999)
+                    {
+                        f.Ragione_Sociale = "";
+                        f.MeseFattura = int.Parse(parts[0]);
+                        f.AnnoFattura = int.Parse(parts[1]);
+                        GridView1.DataSource = f.FattureCerca();
+                    }
+                    else
+                    {
+                        GridView1.DataSource = f.FattureSelect();
+                    }
                 }
                 else
                 {
-                    f.Ragione_Sociale = "";
-                    f.Data_Fattura = DateTime.Parse(Cerca2.Text.Trim());
-                    GridView1.DataSource = f.FattureCerca();
+                    GridView1.DataSource = f.FattureSelect();
                 }
+            }
+            else
+            {
+                GridView1.DataSource = f.FattureSelect();
             }
         }
         GridView1.DataBind();

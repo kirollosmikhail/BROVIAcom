@@ -29,7 +29,7 @@ public partial class FattureIns : System.Web.UI.Page
 
     protected void btnInsert_Click(object sender, EventArgs e)
     {
-        if (datafat_txt.Text.Trim() != "" && descfat_txt.Text.Trim() != "" && imponibile_txt.Text.Trim() != "" && IVA_txt.Text.Trim() != "")
+        if (datafat_txt.Text.Trim() != "" && descfat_txt.Text.Trim() != "" && IVA_txt.Text.Trim() != "")
         {
             if (decimal.Parse(IVA_txt.Text.Trim()) < 0 || decimal.Parse(IVA_txt.Text.Trim()) > 1)
             {
@@ -39,7 +39,6 @@ public partial class FattureIns : System.Web.UI.Page
             FATTURE f=new FATTURE();
             f.Data_Fattura = DateTime.Parse(datafat_txt.Text.Trim());
             f.Descrizione = descfat_txt.Text.Trim();
-            f.Imponibile= decimal.Parse(imponibile_txt.Text.Trim());
             f.IVA = decimal.Parse(IVA_txt.Text.Trim());
             f.Cod_Commessa = int.Parse(ddlCommessa.SelectedValue);
 

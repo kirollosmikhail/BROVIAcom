@@ -17,7 +17,7 @@
     <div style="display: flex; align-items: center;">
         <asp:RadioButton ID="rad_2" runat="server" GroupName="Condizioni" AutoPostBack="true"></asp:RadioButton>
         &nbsp
-        <asp:TextBox ID="Cerca2" runat="server" type="text" CssClass="form-control textbox" Style="width: 200px" placeholder="Ragione Sociale" AutoPostBack="true" OnTextChanged="Page_Load" TextMode="Date"></asp:TextBox>
+        <asp:TextBox ID="Cerca2" runat="server" CssClass="form-control textbox" Style="width: 200px" placeholder="MM/YYYY" AutoPostBack="true" OnTextChanged="Page_Load" onkeypress="return allowOnlyMonthYear(event)"></asp:TextBox>
     </div>
     <br />
     <div class="table-container">
@@ -46,5 +46,22 @@
             </Columns>
         </asp:GridView>
     </div>
+    <script>
+    function allowOnlyMonthYear(e) {
+        var charCode = (e.which) ? e.which : e.keyCode;
+        var cercabox = document.getElementById('<%=Cerca2.ClientID%>');
+        var inputValue = cercabox.value;
+        
+        // Allow only numbers, backspace, delete, tab, and /
+        if ((charCode >= 48 && charCode <= 57) || charCode == 8 || charCode == 9 || charCode == 46 || charCode == 47) {
+            // Check for MM/YYYY format
+            if (inputValue.length == 2 && charCode != 8) {
+                cercabox.value = inputValue + '/';
+            }
+            return true;
+        }
+        return false;
+    }
+    </script>
 </asp:Content>
 

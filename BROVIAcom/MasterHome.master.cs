@@ -9,7 +9,13 @@ public partial class MasterHome : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (!IsPostBack)
+        {
+            if (Session["Cod_Dipendente"] == null)
+            {
+                Response.Redirect("login.aspx");
+            }
+        }
     }
 
     protected void home_btn_Click(object sender, EventArgs e)

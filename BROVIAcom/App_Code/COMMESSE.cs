@@ -63,6 +63,18 @@ public class COMMESSE
         c.EseguiSelect();
         return c.dt;
     }
+    
+    public decimal CommesseImponibile()
+    {
+        CONNESSIONE c = new CONNESSIONE();
+        c.querydiselezione = "CommesseImponibile";
+        c.cmd.Parameters.AddWithValue("@Cod_Commessa", Cod_Commessa);
+
+        c.EseguiSelect();
+
+        return c.dt.Rows[0].Field<decimal>(0);
+    }
+
     public void CommesseMod()
     {
         CONNESSIONE c = new CONNESSIONE();

@@ -20,10 +20,6 @@
         </div>
         <div class="contdati">
             <div>
-                <asp:Label runat="server" Text="Imponibile"></asp:Label>
-                <asp:TextBox ID="imponibile_txt" runat="server" type="text" CssClass="form-control textbox" placeholder="Imponibile" />
-            </div>
-            <div>
                 <asp:Label runat="server" Text="IVA"></asp:Label>
                 <asp:TextBox ID="IVA_txt" runat="server" type="text" CssClass="form-control textbox" placeholder="IVA" />
             </div>
