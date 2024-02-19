@@ -198,11 +198,10 @@ footer {
     min-width: 200px;
 }
 
-@media (max-width:2000px) {
-    .table-container {
-        overflow: auto;
-    }
+.overflow-auto {
+    overflow: auto;
 }
+
 /*GridView styles */
 .gridview {
     width: 100%;
