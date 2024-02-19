@@ -32,15 +32,14 @@ public partial class login : System.Web.UI.Page
         {
 
             Session["Cod_Dipendente"] = dt.Rows[0]["Cod_Dipendente"].ToString();
+            Session["Cod_Tipo_Dipendente"] = dt.Rows[0]["Cod_Tipo_Dipendente"].ToString();
             if (dt.Rows[0]["PWD"].ToString() == "benvenuto") //se dipendente effettua il primo accesso
             {
                 AccessiIns(true);
                 Response.Redirect("CambiaPWD.aspx");
-                return;
             }
             AccessiIns(true);
             Response.Redirect("../Home.aspx");
-            return;
         }
         AccessiIns(false);
         Page.ClientScript.RegisterStartupScript(this.GetType(), "Errore", "alert('Utente inesistente o bloccato');", true);
