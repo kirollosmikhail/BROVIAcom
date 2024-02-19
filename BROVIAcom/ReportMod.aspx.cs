@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -65,7 +67,7 @@ public partial class _Default : System.Web.UI.Page
     protected void SessionDipendenti()
     {
         DIPENDENTI d = new DIPENDENTI();
-        d.Cod_Dipendente = 1;//int.Parse(Session["Cod_Dipendente"].ToString());
+        d.Cod_Dipendente = int.Parse(Session["Cod_Dipendente"].ToString());
         DataTable dt = d.SessionSelectDipendenti();
         if (dt.Rows[0]["Cod_Tipo_Dipendente"].ToString() == "1" || dt.Rows[0]["Cod_Tipo_Dipendente"].ToString() == "2")
         {
@@ -115,11 +117,14 @@ public partial class _Default : System.Web.UI.Page
 
         l.LavoriMod();
 
+        
+
 
 
 
         DIPENDENTI d = new DIPENDENTI();
-        d.Cod_Dipendente = 6;//int.Parse(Session["Cod_Dipendente"].ToString());
+       
+        d.Cod_Dipendente = int.Parse(Session["Cod_Dipendente"].ToString());
         DataTable dt = d.SessionSelectDipendenti();
         if (dt.Rows[0]["Cod_Tipo_Dipendente"].ToString() == "1" || dt.Rows[0]["Cod_Tipo_Dipendente"].ToString() == "2")
         {
@@ -133,8 +138,64 @@ public partial class _Default : System.Web.UI.Page
         {
             amministrazione.Visible = false;
         }
+        DataTable dtemail = l.DipendentiEmail();
+        if (dtemail.Rows.Count > 0)
+        {
+        string email = dtemail.Rows[0]["USR"].ToString();
+        string CognomeNome = dtemail.Rows[0]["CognomeNome"].ToString();
+        string data = dtemail.Rows[0]["Data_Report"].ToString();
+            data = data.Substring(0,10);
+        Email(email, CognomeNome, data);
+        }
+
+
+
+        Response.Redirect("ReportSelect.aspx");
 
     }
 
+
+    protected void Email(string email, string CognomeNome, string data)
+    {
+
+        try
+        {
+            SmtpClient mySmtpClient = new SmtpClient("smtp.libero.it");
+
+            // set smtp-client with basicAuthentication
+            mySmtpClient.UseDefaultCredentials = false;
+            System.Net.NetworkCredential basicAuthenticationInfo = new
+               System.Net.NetworkCredential("gendoita12@libero.it", "Classedoita.12");
+            mySmtpClient.Credentials = basicAuthenticationInfo;
+
+            // add from,to mailaddresses
+            MailAddress from = new MailAddress("gendoita12@libero.it", "Broviacom");
+            MailAddress to = new MailAddress(email, CognomeNome);
+            MailMessage myMail = new System.Net.Mail.MailMessage(from, to);
+
+            // set subject and encoding
+            myMail.Subject = "Report Rifiutato";
+
+            // set body-message and encoding
+            myMail.Body = "<b>Report Rifiutato</b> del giorno <b>"+data+"</b>. <br>Contattare l'amministrazione.";
+
+            //// text or html
+            myMail.IsBodyHtml = true;
+
+            mySmtpClient.Port = 587;
+            mySmtpClient.EnableSsl = true;
+            mySmtpClient.Send(myMail);
+        }
+
+        catch (SmtpException ex)
+        {
+            throw new ApplicationException
+              ("SmtpException has occured: " + ex.Message);
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+    }
    
 }

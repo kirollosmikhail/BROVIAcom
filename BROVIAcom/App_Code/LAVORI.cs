@@ -97,5 +97,13 @@ public class LAVORI
         c.EseguiComando();
     }
 
-    
+    public DataTable DipendentiEmail()
+    {
+        CONNESSIONE c = new CONNESSIONE();
+        c.querydiselezione = "DipendentiEmail";
+        c.cmd.Parameters.AddWithValue("@Cod_Lavoro", Cod_Lavoro);
+
+        c.EseguiSelect();
+        return c.dt;
+    }
 }

@@ -20,7 +20,7 @@ public partial class _Default : System.Web.UI.Page
     protected void SessionDipendenti()
     {
         DIPENDENTI d = new DIPENDENTI();
-        d.Cod_Dipendente = 6;//int.Parse(Session["Cod_Dipendente"].ToString());
+        d.Cod_Dipendente = int.Parse(Session["Cod_Dipendente"].ToString());
         DataTable dt = d.SessionSelectDipendenti();
         lblCognome.Text = dt.Rows[0]["Cognome"].ToString();
         lblNome.Text = dt.Rows[0]["Nome"].ToString();
@@ -39,7 +39,7 @@ public partial class _Default : System.Web.UI.Page
     {
         REPORT r = new REPORT();
         r.Data_Report = DateTime.Parse(txtDataReport.Text);
-        r.Cod_Dipendente = 6;//int.Parse(Session["Cod_Dipendente"].ToString());
+        r.Cod_Dipendente = int.Parse(Session["Cod_Dipendente"].ToString());
 
         DataTable dt = r.ReportVerifica();
         if (dt.Rows.Count == 0)
@@ -87,5 +87,6 @@ public partial class _Default : System.Web.UI.Page
 
         l.Descrizione_Spesa_Extra = txtDesSpesaExtra.Text;
         l.LavoriIns();
+        Response.Redirect("ReportSelect.aspx");
     }
 }

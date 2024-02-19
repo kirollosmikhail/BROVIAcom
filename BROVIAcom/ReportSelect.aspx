@@ -11,7 +11,7 @@
     <asp:TextBox ID="Cerca2" runat="server" type="text" CssClass="form-control textbox" Style="width: 200px" placeholder="Data Report" AutoPostBack="true" OnTextChanged="Page_Load" TextMode="Date"></asp:TextBox>
     <br />
     <div class="table-container">
-        <asp:Label ID="reportAttesaRifiutati" runat="server" Text="REPORT IN ATTESA O RIFIUTATI"></asp:Label>
+        <asp:Label ID="reportAttesaRifiutati" runat="server" Text="<h4>REPORT IN ATTESA O RIFIUTATI</h4>"></asp:Label>
 
         <asp:GridView ID="GridView1" CssClass="gridview" runat="server" AutoGenerateColumns="False" DataKeyNames="Cod_Lavoro" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
             <Columns>
@@ -34,7 +34,7 @@
     </div>
     <br />
     <div class="table-container">
-        <asp:Label ID="reportApprovati" runat="server" Text="REPORT APPROVATI"></asp:Label>
+        <asp:Label ID="reportApprovati" runat="server" Text="<h4>REPORT APPROVATI</h4>"></asp:Label>
 
         <asp:GridView ID="GridView2" CssClass="gridview" runat="server" AutoGenerateColumns="False" DataKeyNames="Cod_Lavoro">
             <Columns>

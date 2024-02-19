@@ -53,7 +53,7 @@ public partial class _Default : System.Web.UI.Page
     protected void SessionDipendenti()
     {
         DIPENDENTI d = new DIPENDENTI();
-        d.Cod_Dipendente = 1;//int.Parse(Session["Cod_Dipendente"].ToString());
+        d.Cod_Dipendente = int.Parse(Session["Cod_Dipendente"].ToString());
         DataTable dt = d.SessionSelectDipendenti();
         if (dt.Rows[0]["Cod_Tipo_Dipendente"].ToString() == "1" || dt.Rows[0]["Cod_Tipo_Dipendente"].ToString() == "2")
         {
@@ -71,7 +71,7 @@ public partial class _Default : System.Web.UI.Page
     protected void ReportDipendentiSelect()
     {
         REPORT r = new REPORT();
-        r.Cod_Dipendente = 6;
+        r.Cod_Dipendente = int.Parse(Session["Cod_Dipendente"].ToString());
         GridView1.DataSource = r.ReportDipendentiSelect();
         GridView1.DataBind();
     }
@@ -79,7 +79,7 @@ public partial class _Default : System.Web.UI.Page
     protected void ReportApprovati()
     {
         REPORT r = new REPORT();
-        r.Cod_Dipendente = 6;
+        r.Cod_Dipendente = int.Parse(Session["Cod_Dipendente"].ToString());
         GridView2.DataSource = r.ReportApprovati();
         GridView2.DataBind();
     }
