@@ -23,7 +23,6 @@
     <div class="table-container">
         <asp:GridView ID="GridView1" CssClass="gridview" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" DataKeyNames="Cod_Commessa">
             <Columns>
-                <asp:CommandField SelectText="Modifica" ShowSelectButton="True" ButtonType="Button"></asp:CommandField>
                 <asp:BoundField DataField="Numero_Fattura" HeaderText="Numero Fattura"></asp:BoundField>
                 <asp:BoundField DataField="Data_Fattura" HeaderText="Data Fattura"></asp:BoundField>
                 <asp:BoundField DataField="Descrizione" HeaderText="Descrizione"></asp:BoundField>
