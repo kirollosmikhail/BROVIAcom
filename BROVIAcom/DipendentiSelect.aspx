@@ -8,20 +8,22 @@
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
+
     <script type="text/javascript">
 
 
         function showpopup() {
             $(function () {
-                var findialog = $('<iframe src="DipendentiIns.aspx" frameborder="0"></iframe>').appendTo('body');
+                
+                var findialog = $('<div  ID="iframe1" > <iframe src="DipendentiIns.aspx" frameborder="0" class="ui-dialog-content ui-widget-content" style="width: 100%;min-height: 0px;height: 100%;"></iframe></div>').appendTo('body');
                 findialog.dialog({
                     modal: true,
                     title: 'Inserisci Nuovo Dipendente',
                     resizable: true,
-                    width: 400,
-                    height: 400,
+                    width: 1000,
+                    height: 1000,
                     draggable: true,
-
+                    
                     buttons: {
                         Aggiorna: function () {
                             $(this).dialog('close');
@@ -29,12 +31,13 @@
 
                         }
                     }
+                    
                 });
-               
+                
             });
-                            document.querySelector('.ui-dialog-buttonset').querySelector('button').classList.add('button');
 
         }
+        
     </script>
 
     <h2>Dipendenti</h2>
