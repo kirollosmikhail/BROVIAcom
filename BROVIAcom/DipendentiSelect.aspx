@@ -33,7 +33,7 @@
                     }
                     
                 });
-                
+                document.querySelector('.ui-dialog-buttonset').querySelector('button').classList.add('button');
             });
 
         }
