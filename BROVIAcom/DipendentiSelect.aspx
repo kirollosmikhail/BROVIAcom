@@ -15,15 +15,14 @@
         function showpopup() {
             $(function () {
                 
-                var findialog = $('<div  ID="iframe1" > <iframe src="DipendentiIns.aspx" frameborder="0" class="ui-dialog-content ui-widget-content" style="width: 100%;min-height: 0px;height: 100%;"></iframe></div>').appendTo('body');
+                var findialog = $('<div  ID="iframe1" style="overflow: hidden; padding:0;"> <iframe src="Default.aspx" frameborder="0" class="ui-dialog-content ui-widget-content" style="width: 100%;min-width:0px;min-height: 0px;height: 100%; padding:0;"></iframe></div>').appendTo('body');
                 findialog.dialog({
                     modal: true,
                     title: 'Inserisci Nuovo Dipendente',
                     resizable: true,
-                    width: 1000,
-                    height: 1000,
+                    width: 600,
+                    height: 900,
                     draggable: true,
-                    
                     buttons: {
                         Aggiorna: function () {
                             $(this).dialog('close');
@@ -31,20 +30,18 @@
 
                         }
                     }
-                    
-                });
-                document.querySelector('.ui-dialog-buttonset').querySelector('button').classList.add('button');
+                });   
             });
-
+            document.querySelector('.ui-dialog-buttonset').querySelector('button').classList.add('button');
         }
         
     </script>
 
     <h2>Dipendenti</h2>
     <br />
-    <asp:Button ID="Button1"  class="button" runat="server" Text="Inserisci Nuovo Dipendente" OnClientClick="showpopup();return false;"  />
-    <asp:Button ID="Button2"   runat="server" style="display:none;" Text="Confirm" OnClick="Button2_Click" />
-<%--    <a  href="DipendentiIns.aspx" class="button">Inserisci Nuovo Dipendente</a>--%>
+    <asp:Button ID="Button1" class="button" runat="server" Text="Inserisci Nuovo Dipendente" OnClientClick="showpopup();return false;" />
+    <asp:Button ID="Button2" runat="server" style="display: none;" Text="Confirm" OnClick="Button2_Click" />
+    <%--    <a  href="DipendentiIns.aspx" class="button">Inserisci Nuovo Dipendente</a>--%>
     <br />
     <a href="TipiDipendentiSelect.aspx" class="button">Tipologie dipendenti</a>
     <br />
@@ -54,7 +51,7 @@
     <br />
     <div class="table-container">
         <asp:GridView ID="GridView1" CssClass="gridview" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" DataKeyNames="Cod_Dipendente">
-            <Columns>
+            <columns>
                 <asp:CommandField SelectText="Modifica" ShowSelectButton="True" ButtonType="Button"></asp:CommandField>
                 <asp:BoundField DataField="Cognome" HeaderText="Cognome"></asp:BoundField>
                 <asp:BoundField DataField="Nome" HeaderText="Nome"></asp:BoundField>
@@ -68,7 +65,7 @@
                 <asp:BoundField DataField="Indirizzo" HeaderText="Indirizzo"></asp:BoundField>
                 <asp:BoundField DataField="Citta" HeaderText="Città"></asp:BoundField>
                 <asp:BoundField DataField="CAP" HeaderText="CAP"></asp:BoundField>
-            </Columns>
+            </columns>
         </asp:GridView>
     </div>
 </asp:Content>
