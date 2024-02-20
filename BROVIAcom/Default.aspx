@@ -8,7 +8,7 @@
     <title></title>
     <link href="css/StyleSheet.css" rel="stylesheet" />
 </head>
-<body>
+<body style="zoom: 1.5">
     <form id="form1" runat="server">
         <div>
             <h2>Inserisci Dipendente</h2>
