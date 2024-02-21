@@ -15,19 +15,27 @@ public partial class MasterHome : System.Web.UI.MasterPage
             {
                 Response.Redirect("login/login.aspx");
             }
-
-            if(Session["Cod_Tipo_Dipendente"].ToString() != "1" && Session["Cod_Tipo_Dipendente"].ToString() != "2")
+            string currentUrl = System.Web.HttpContext.Current.Request.Url.AbsoluteUri;
+            if (Session["Cod_Tipo_Dipendente"].ToString() != "1" && Session["Cod_Tipo_Dipendente"].ToString() != "2")
             {
+                if (!(currentUrl.Contains("Home.aspx") || currentUrl.Contains("ReportSelect.aspx") || currentUrl.Contains("ReportIns.aspx") || currentUrl.Contains("ReportMod.aspx")))
+                {
+                    Response.Redirect("Home.aspx");
+                }
                 accessi_btn.Visible = false;
                 clienti_btn.Visible = false;
                 commesse_btn.Visible = false;
                 dipendenti_btn.Visible = false;
-                eventi_btn.Visible = false; 
+                eventi_btn.Visible = false;
                 fatture_btn.Visible = false;
                 ricavi_btn.Visible = false;
             }
-            else if(Session["Cod_Tipo_Dipendente"].ToString() == "2")
+            else if (Session["Cod_Tipo_Dipendente"].ToString() == "2")
             {
+                if(currentUrl.Contains("RicaviSelect.aspx"))
+                {
+                    Response.Redirect("Home.aspx");
+                }
                 ricavi_btn.Visible = false;
             }
         }
