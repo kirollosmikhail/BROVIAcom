@@ -38,8 +38,7 @@ public partial class MasterHome : System.Web.UI.MasterPage
                 }
                 ricavi_btn.Visible = false;
             }
-            CONNESSIONE c  = new CONNESSIONE();
-            c.Cod_Session_Utente = Session["Cod_Dipendente"].ToString();
+            CONNESSIONE.Cod_Session_Utente = Session["Cod_Dipendente"].ToString();
         }
     }
 

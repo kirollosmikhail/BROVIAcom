@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlTypes;
 using System.Linq;
 using System.Web;
+using System.Web.UI.WebControls;
 
 
 public class DIPENDENTI
@@ -35,6 +36,7 @@ public class DIPENDENTI
         c.querydiselezione = "Login";
         c.cmd.Parameters.AddWithValue("@USR", USR);
         c.cmd.Parameters.AddWithValue("@PWD", PWD);
+        c.Parametri = USR;
 
         c.EseguiSelect();
         return c.dt;

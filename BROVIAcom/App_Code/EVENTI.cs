@@ -17,11 +17,11 @@ public class EVENTI
     {
         
     }
-    public void AccessiIns()
+    public void EventiIns()
     {
         CONNESSIONE c = new CONNESSIONE();
 
-        c.querydicomando = "AccessiIns";
+        c.querydicomando = "EventiIns";
         c.cmd.Parameters.AddWithValue("@Data_Azione", Data_Azione);
         c.cmd.Parameters.AddWithValue("@Azione", Azione);
         c.cmd.Parameters.AddWithValue("@Parametri", Parametri);

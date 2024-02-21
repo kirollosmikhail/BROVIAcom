@@ -7,7 +7,7 @@ using System.Web;
 
 public class CONNESSIONE
 {
-    public string Cod_Session_Utente;
+    static public string Cod_Session_Utente;
     public string Parametri;
     public SqlConnection conn = new SqlConnection();
     public SqlCommand cmd = new SqlCommand();
@@ -24,6 +24,7 @@ public class CONNESSIONE
 
     public void EseguiSelect()
     {
+        EVENTI ev = new EVENTI();
         if (Cod_Session_Utente == null || Cod_Session_Utente == "")
         {
             Cod_Session_Utente = "0";
@@ -37,18 +38,26 @@ public class CONNESSIONE
         }
         catch (Exception ex)
         {
-            EVENTI ev = new EVENTI();
             ev.Data_Azione = DateTime.Now;
             ev.Azione = querydiselezione;
             ev.Parametri = ex.Message;
             ev.Cod_Dipendente = int.Parse(Cod_Session_Utente);
+            ev.EventiIns();
+        }
+        finally
+        {
+            ev.Data_Azione = DateTime.Now;
+            ev.Azione = querydiselezione;
+            ev.Parametri = Parametri;
+            ev.Cod_Dipendente = int.Parse(Cod_Session_Utente);
+            ev.EventiIns();
         }
     }
 
     public void EseguiComando()
     {
         EVENTI ev = new EVENTI();
-        if(Cod_Session_Utente == null || Cod_Session_Utente == "")
+        if (Cod_Session_Utente == null || Cod_Session_Utente == "")
         {
             Cod_Session_Utente = "0";
         }
@@ -59,9 +68,6 @@ public class CONNESSIONE
             conn.Open();
             cmd.ExecuteNonQuery();
             conn.Close();
-            ev.Data_Azione = DateTime.Now;
-            ev.Azione = querydicomando;
-            ev.Cod_Dipendente = int.Parse(Cod_Session_Utente);
         }
         catch (Exception ex)
         {
@@ -69,6 +75,16 @@ public class CONNESSIONE
             ev.Azione = querydicomando;
             ev.Parametri = ex.Message;
             ev.Cod_Dipendente = int.Parse(Cod_Session_Utente);
+            ev.EventiIns();
+
+        }
+        finally
+        {
+            ev.Data_Azione = DateTime.Now;
+            ev.Azione = querydicomando;
+            ev.Parametri = Parametri;
+            ev.Cod_Dipendente = int.Parse(Cod_Session_Utente);
+            ev.EventiIns();
         }
     }
 }
