@@ -8,9 +8,31 @@ using System.Web.UI.WebControls;
 
 public partial class _Default : System.Web.UI.Page
 {
+    static DataTable dtx = new DataTable();
+    static string x = null;
     protected void Page_Load(object sender, EventArgs e)
     {
-        BindGridView();
+        if (!IsPostBack)
+        {
+            BindGridView();
+            x = cerca.Text;
+        }
+        else
+        {
+            if (x != cerca.Text)
+            {
+                BindGridView();
+                x = cerca.Text;
+
+            }
+            else
+            {
+                GridView2.DataSource = dtx;
+                GridView2.AllowPaging = true;
+                GridView2.PageSize = 10; // Imposta il numero di righe per pagina
+                GridView2.DataBind();
+            }
+        }
     }
 
     private void BindGridView()
@@ -34,12 +56,13 @@ public partial class _Default : System.Web.UI.Page
                 GridView2.DataSource = dt;
             }
         }
+        dtx = GridView2.DataSource as DataTable;
         // Imposta il paging
         GridView2.AllowPaging = true;
         GridView2.PageSize = 10; // Imposta il numero di righe per pagina
         GridView2.DataBind();
     }
-        protected void paging(object sender, GridViewPageEventArgs e)
+    protected void paging(object sender, GridViewPageEventArgs e)
     {
         GridView2.PageIndex = e.NewPageIndex;
         BindGridView(); // Rileggi i dati per la nuova pagina

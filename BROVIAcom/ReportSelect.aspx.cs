@@ -9,14 +9,39 @@ using System.Web.UI.WebControls;
 
 public partial class _Default : System.Web.UI.Page
 {
+    static DataTable dtx = new DataTable();
+    static DataTable dtx2 = new DataTable();
+    static string x = null;
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
+
             BindGridView2();
+
+            BindGridView();
+            x = Cerca2.Text;
+        }
+        else
+        {
+            if (x != Cerca2.Text)
+            {
+                BindGridView();
+                x = Cerca2.Text;
+            }
+            else
+            {
+                GridView1.DataSource = dtx;
+                GridView1.AllowPaging = true;
+                GridView1.PageSize = 10; // Imposta il numero di righe per pagina
+                GridView1.DataBind();
+                GridView2.DataSource = dtx2;
+                GridView2.AllowPaging = true;
+                GridView2.PageSize = 10; // Imposta il numero di righe per pagina
+                GridView2.DataBind();
+            }
         }
 
-        BindGridView();
     }
     private void BindGridView()
     {
@@ -39,6 +64,7 @@ public partial class _Default : System.Web.UI.Page
                 r.Data_Report = DateTime.Parse(Cerca2.Text.Trim());
                 GridView1.DataSource = r.ReportCerca();
             }
+            dtx = GridView1.DataSource as DataTable;
             // Imposta il paging
             GridView1.AllowPaging = true;
             GridView1.PageSize = 10; // Imposta il numero di righe per pagina
@@ -79,14 +105,15 @@ public partial class _Default : System.Web.UI.Page
             reportApprovati.Visible = false;
             GridView2.Visible = false;
             LAVORI l = new LAVORI();
-            GridView1.DataSource = l.LavoriSelect(); 
+            GridView1.DataSource = l.LavoriSelect();
         }
         else
         {
             REPORT r = new REPORT();
             r.Cod_Dipendente = int.Parse(Session["Cod_Dipendente"].ToString());
-            GridView1.DataSource = r.ReportDipendentiSelect();   
+            GridView1.DataSource = r.ReportDipendentiSelect();
         }
+        dtx = GridView1.DataSource as DataTable;
         // Imposta il paging
         GridView1.AllowPaging = true;
         GridView1.PageSize = 10; // Imposta il numero di righe per pagina
@@ -98,6 +125,7 @@ public partial class _Default : System.Web.UI.Page
         REPORT r = new REPORT();
         r.Cod_Dipendente = int.Parse(Session["Cod_Dipendente"].ToString());
         GridView2.DataSource = r.ReportApprovati();
+        dtx2 = GridView1.DataSource as DataTable;
         // Imposta il paging
         GridView1.AllowPaging = true;
         GridView1.PageSize = 10; // Imposta il numero di righe per pagina

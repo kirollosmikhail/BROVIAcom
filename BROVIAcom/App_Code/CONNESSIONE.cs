@@ -36,7 +36,7 @@ public class CONNESSIONE
             }
             catch (Exception ex)
             {
-                if (!(querydiselezione == "Login" || querydiselezione.Contains("Select")))
+                if (!(querydiselezione == "Login" || querydiselezione == "ReportApprovati" || querydiselezione.Contains("Select")))
                 {
                     ev.Data_Azione = DateTime.Now;
                     ev.Azione = querydiselezione;
@@ -47,7 +47,7 @@ public class CONNESSIONE
             }
             finally
             {
-                if (!(querydiselezione == "Login" || querydiselezione.Contains("Select")))
+                if (!(querydiselezione == "Login" || querydiselezione == "ReportApprovati" || querydiselezione.Contains("Select")))
                 {
                     ev.Data_Azione = DateTime.Now;
                     ev.Azione = querydiselezione;
@@ -62,7 +62,7 @@ public class CONNESSIONE
 
     public void EseguiComando()
     {
-        if(querydicomando != null)
+        if (querydicomando != null)
         {
             EVENTI ev = new EVENTI();
             if (querydicomando != "EventiIns")

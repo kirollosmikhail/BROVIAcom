@@ -8,14 +8,32 @@ using System.Web.UI.WebControls;
 
 public partial class CommesseSelect : System.Web.UI.Page
 {
-
+    static DataTable dtx = new DataTable();
+    static string x = null;
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
             DdlRiempiTipiCommesse();
+
+            BindGridView();
+            x = cerca.Text;
         }
-        BindGridView();
+        else
+        {
+            if (x != cerca.Text)
+            {
+                BindGridView();
+                x = cerca.Text;
+            }
+            else
+            {
+                GridView1.DataSource = dtx;
+                GridView1.AllowPaging = true;
+                GridView1.PageSize = 10; // Imposta il numero di righe per pagina
+                GridView1.DataBind();
+            }
+        }
     }
 
     private void BindGridView()
@@ -44,6 +62,7 @@ public partial class CommesseSelect : System.Web.UI.Page
                 GridView1.DataSource = dt;
             }
         }
+        dtx = GridView1.DataSource as DataTable;
         // Imposta il paging
         GridView1.AllowPaging = true;
         GridView1.PageSize = 10; // Imposta il numero di righe per pagina

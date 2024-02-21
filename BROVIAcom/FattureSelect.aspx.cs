@@ -9,18 +9,40 @@ using System.Web.UI.WebControls;
 
 public partial class FattureSelect : System.Web.UI.Page
 {
+    static DataTable dtx = new DataTable();
+    static string x = null, y = null;
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
             rad_1.Checked = true;
+            BindGridView();
+
+            x = cerca.Text;
+            y = Cerca2.Text;
         }
-         BindGridView();
+        else
+        {
+            if ((x != cerca.Text && rad_1.Checked == true) || (y != Cerca2.Text && rad_2.Checked == true))
+            {
+                BindGridView();
+
+                x = cerca.Text;
+                y = Cerca2.Text;
+            }
+            else
+            {
+                GridView1.DataSource = dtx;
+                GridView1.AllowPaging = true;
+                GridView1.PageSize = 10; // Imposta il numero di righe per pagina
+                GridView1.DataBind();
+            }
+        }
     }
 
     private void BindGridView()
-    { 
-    FATTURE f = new FATTURE();
+    {
+        FATTURE f = new FATTURE();
         if (rad_1.Checked)
         {
             if (cerca.Text.Trim() == "")
@@ -63,6 +85,7 @@ public partial class FattureSelect : System.Web.UI.Page
                 GridView1.DataSource = f.FattureSelect();
             }
         }
+        dtx = GridView1.DataSource as DataTable;
         // Imposta il paging
         GridView1.AllowPaging = true;
         GridView1.PageSize = 10; // Imposta il numero di righe per pagina
