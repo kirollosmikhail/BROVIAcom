@@ -22,6 +22,16 @@ public class FATTURE
     {
 
     }
+
+    public DataTable RicaviSelect()
+    {
+        CONNESSIONE c = new CONNESSIONE();
+        c.querydiselezione = "RicaviSelect";
+
+        c.EseguiSelect();
+        return c.dt;
+    }
+
     public DataTable FattureSelect()
     {
         CONNESSIONE c = new CONNESSIONE();

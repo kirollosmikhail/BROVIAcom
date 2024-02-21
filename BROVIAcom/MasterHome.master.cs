@@ -24,10 +24,11 @@ public partial class MasterHome : System.Web.UI.MasterPage
                 dipendenti_btn.Visible = false;
                 eventi_btn.Visible = false; 
                 fatture_btn.Visible = false;
+                ricavi_btn.Visible = false;
             }
             else if(Session["Cod_Tipo_Dipendente"].ToString() == "2")
             {
-          
+                ricavi_btn.Visible = false;
             }
         }
     }
@@ -75,6 +76,11 @@ public partial class MasterHome : System.Web.UI.MasterPage
     protected void fatture_btn_Click(object sender, EventArgs e)
     {
         Response.Redirect("FattureSelect.aspx");
+    }
+
+    protected void ricavi_btn_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("RicaviSelect.aspx");
     }
 }
 

@@ -45,6 +45,9 @@
                             <li class="nav-item">
                                 <asp:Button ID="fatture_btn" class="nav-link" runat="server" Text="Fatture" OnClick="fatture_btn_Click" />
                             </li>
+                            <li class="nav-item">
+                                <asp:Button ID="ricavi_btn" class="nav-link" runat="server" Text="Ricavi" OnClick="ricavi_btn_Click" />
+                            </li>
                         </ul>
                         <asp:Button ID="logout_btn" class="navbar-nav nav-link" runat="server" Text="Logout" OnClick="Logout_btn_Click" />
                     </div>
