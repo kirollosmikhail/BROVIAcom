@@ -88,7 +88,7 @@ public class DIPENDENTI
         {
             c.cmd.Parameters.AddWithValue("@Data_Licenziamento", DBNull.Value);
         }
-       
+
 
         c.cmd.Parameters.AddWithValue("@Salario", Salario);
         c.cmd.Parameters.AddWithValue("@Telefono", Telefono);
@@ -130,6 +130,7 @@ public class DIPENDENTI
         c.cmd.Parameters.AddWithValue("@Cod_Tipo_Dipendente", Cod_Tipo_Dipendente);
 
         c.querydicomando = "DipendentiIns";
+        c.Parametri = Cognome + " " + Nome + " " + USR + " " + Abilitato + " " + Codice_Fiscale + " " + P_IVA + " " + Data_Assunzione + " " + Data_Licenziamento + " " + Salario + " " + Telefono + " " + Indirizzo + " " + Citta + " " + CAP + " " + Cod_Tipo_Dipendente;
         c.EseguiComando();
     }
 

@@ -76,7 +76,7 @@
     </div>
 </div>
 <p>*facoltativi</p>
-<asp:Button ID="btninsert" runat="server" CssClass="button" Text="Conferma" />
+<asp:Button ID="btninsert" runat="server" CssClass="button" Text="Conferma" OnClick="btninsert_Click" />
 
         </div>
     </form>
