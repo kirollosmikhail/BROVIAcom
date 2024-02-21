@@ -33,6 +33,7 @@ public class REPORT
         c.cmd.Parameters.AddWithValue("@Cod_Controllo", Cod_Controllo);
         c.cmd.Parameters.AddWithValue("@Cod_Report", Cod_Report);
 
+        c.Parametri = "Cod_Controllo = " + Cod_Controllo + " Cod_Report = " + Cod_Report;
         c.EseguiComando();
     }
 
@@ -53,6 +54,7 @@ public class REPORT
         c.cmd.Parameters.AddWithValue("@Data_Report", Data_Report);
         c.cmd.Parameters.AddWithValue("@Cod_Dipendente", Cod_Dipendente);
 
+        c.Parametri = "Data_Report = " + Data_Report + " Cod_Dipendente = " + Cod_Dipendente;
         c.EseguiComando();
     }
 
@@ -63,6 +65,7 @@ public class REPORT
         c.cmd.Parameters.AddWithValue("@Data_Report", Data_Report);
         c.cmd.Parameters.AddWithValue("@Cod_Dipendente", Cod_Dipendente);
 
+        c.Parametri = "Data_Report = " + Data_Report + " Cod_Dipendente = " + Cod_Dipendente;
         c.EseguiSelect();
         return c.dt;
     }
@@ -82,6 +85,7 @@ public class REPORT
         c.querydiselezione = "LavoriCerca";
         c.cmd.Parameters.AddWithValue("@Data_Report", Data_Report);
 
+        c.Parametri = "Data_Report = " + Data_Report;
         c.EseguiSelect();
         return c.dt;
     }

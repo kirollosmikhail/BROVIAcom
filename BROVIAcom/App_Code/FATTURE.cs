@@ -60,7 +60,7 @@ public class FATTURE
         else
             c.cmd.Parameters.AddWithValue("@Ragione_Sociale", Ragione_Sociale);
 
-
+        c.Parametri = "Mese = " + MeseFattura + " Anno = " + AnnoFattura + " Ragione_Sociale = " + Ragione_Sociale;
         c.EseguiSelect();
         return c.dt;
     }
@@ -79,6 +79,7 @@ public class FATTURE
         c.cmd.Parameters.AddWithValue("@IVA", IVA);
         c.cmd.Parameters.AddWithValue("@Descrizione", Descrizione);
 
+        c.Parametri = "Cod_Commessa = " + Cod_Commessa + " Data_Fattura = " + Data_Fattura + " Imponibile = " + co.CommesseImponibile() + " IVA = " + IVA + " Descrizione = " + Descrizione;
         c.EseguiComando();
     }
 

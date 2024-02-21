@@ -38,6 +38,7 @@ public class CLIENTI
         c.cmd.Parameters.AddWithValue("@Ragione_Sociale", Ragione_Sociale);
         c.cmd.Parameters.AddWithValue("@Cod_Cliente", Cod_Cliente);
 
+        c.Parametri = "Ragione_Sociale = " + Ragione_Sociale + " Cod_Cliente = " + Cod_Cliente ;
         c.EseguiSelect();
         return c.dt;
     }
@@ -57,6 +58,7 @@ public class CLIENTI
         c.cmd.Parameters.AddWithValue("@Citta", Citta);
         c.cmd.Parameters.AddWithValue("@CAP", CAP);
 
+        c.Parametri = "Cod_Cliente = " + Cod_Cliente + " Ragione_Sociale = " + Ragione_Sociale + " Codice_Fiscale = " + Codice_Fiscale + " P_IVA = " + P_IVA + " Email = " + Email + " Persona_Riferimento = " + Persona_Riferimento + " Indirizzo = " + Indirizzo + " Citta = " + Citta + " CAP = " + CAP;
         c.EseguiComando();
     }
 
@@ -74,6 +76,7 @@ public class CLIENTI
         c.cmd.Parameters.AddWithValue("@Citta", Citta);
         c.cmd.Parameters.AddWithValue("@CAP", CAP);
 
+        c.Parametri = " Ragione_Sociale = " + Ragione_Sociale + " Codice_Fiscale = " + Codice_Fiscale + " P_IVA = " + P_IVA + " Email = " + Email + " Persona_Riferimento = " + Persona_Riferimento + " Indirizzo = " + Indirizzo + " Citta = " + Citta + " CAP = " + CAP;
         c.EseguiComando();
     }
 }

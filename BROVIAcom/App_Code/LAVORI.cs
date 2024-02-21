@@ -57,6 +57,7 @@ public class LAVORI
         c.querydiselezione = "LavoriCercaSelect";
         c.cmd.Parameters.AddWithValue("@Cod_Lavoro", Cod_Lavoro);
 
+        c.Parametri = "Cod_Lavoro = " + Cod_Lavoro;
         c.EseguiSelect();
         return c.dt;
     }
@@ -76,6 +77,7 @@ public class LAVORI
         c.cmd.Parameters.AddWithValue("@Cod_Commessa", Cod_Commessa);
         c.cmd.Parameters.AddWithValue("@Cod_Lavoro", Cod_Lavoro);
 
+        c.Parametri = "Descrizione_Lavoro = " + Descrizione_Lavoro + " Ore = " + Ore + " Spesa_Pasto = " + Spesa_Pasto + " Spesa_Trasporto = " + Spesa_Trasporto + " Spesa_Pedaggi = " + Spesa_Pedaggi + " Spesa_Pernottamento = " + Spesa_Pernottamento + " Spesa_Extra = " + Spesa_Extra + " Descrizione_Spesa_Extra = " + Descrizione_Spesa_Extra + " Cod_Commessa = " + Cod_Commessa + " Cod_Lavoro = " + Cod_Lavoro;
         c.EseguiComando();
     }
 
@@ -94,6 +96,7 @@ public class LAVORI
         c.cmd.Parameters.AddWithValue("@Cod_Commessa", Cod_Commessa);
         c.cmd.Parameters.AddWithValue("@Cod_Report", Cod_Report);
 
+        c.Parametri = "Descrizione_Lavoro = " + Descrizione_Lavoro + " Ore = " + Ore + " Spesa_Pasto = " + Spesa_Pasto + " Spesa_Trasporto = " + Spesa_Trasporto + " Spesa_Pedaggi = " + Spesa_Pedaggi + " Spesa_Pernottamento = " + Spesa_Pernottamento + " Spesa_Extra = " + Spesa_Extra + " Descrizione_Spesa_Extra = " + Descrizione_Spesa_Extra + " Cod_Commessa = " + Cod_Commessa + " Cod_Report = " + Cod_Report;
         c.EseguiComando();
     }
 

@@ -25,6 +25,8 @@ public class TIPI_DIPENDENTI
         CONNESSIONE c = new CONNESSIONE();
         c.querydicomando = "TipiDipendentiIns";
         c.cmd.Parameters.AddWithValue("@Tipo_Dipendente", Tipo_Dipendente);
+
+        c.Parametri = "Tipo_Dipendente = " + Tipo_Dipendente;
         c.EseguiComando();
     }
     public void TipiDipendentiElimina()
@@ -32,6 +34,8 @@ public class TIPI_DIPENDENTI
         CONNESSIONE c = new CONNESSIONE();
         c.querydicomando = "TipiDipendentiElimina";
         c.cmd.Parameters.AddWithValue("@Cod_Tipo_Dipendente", Cod_Tipo_Dipendente);
+
+        c.Parametri = "Cod_Tipo_Dipendente = " + Cod_Tipo_Dipendente;
         c.EseguiComando();
     }
 }

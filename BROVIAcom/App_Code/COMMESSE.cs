@@ -49,7 +49,7 @@ public class COMMESSE
         else
             c.cmd.Parameters.AddWithValue("@Ragione_Sociale", Ragione_Sociale);
 
-
+        c.Parametri = "Cod_Tipo_Commessa = " + Cod_Tipo_Commessa + " Ragione_Sociale = " + Ragione_Sociale;
         c.EseguiSelect();
         return c.dt;
     }
@@ -130,6 +130,7 @@ public class COMMESSE
         c.cmd.Parameters.AddWithValue("@Cod_Tipo_Commessa", Cod_Tipo_Commessa);
         c.cmd.Parameters.AddWithValue("@Cod_Cliente", Cod_Cliente);
 
+        c.Parametri = "Cod_Commessa = " + Cod_Commessa + " Descrizione_Commessa = " + Descrizione_Commessa + " Data_Inizio = " + Data_Inizio + " Data_Fine = " + Data_Fine + " Anticipo = " + Anticipo + " Importo_ACorpo = " + Importo_ACorpo + " Importo_CanoneMensile = " + Importo_CanoneMensile + " Importo_Orario = " + Importo_Orario + " Cod_Tipo_Commessa = " + Cod_Tipo_Commessa + " Cod_Cliente = " + Cod_Cliente;
         c.EseguiComando();
     }
 
@@ -188,6 +189,7 @@ public class COMMESSE
         c.cmd.Parameters.AddWithValue("@Cod_Tipo_Commessa", Cod_Tipo_Commessa);
         c.cmd.Parameters.AddWithValue("@Cod_Cliente", Cod_Cliente);
 
+        c.Parametri = " Descrizione_Commessa = " + Descrizione_Commessa + " Data_Inizio = " + Data_Inizio + " Data_Fine = " + Data_Fine + " Anticipo = " + Anticipo + " Importo_ACorpo = " + Importo_ACorpo + " Importo_CanoneMensile = " + Importo_CanoneMensile + " Importo_Orario = " + Importo_Orario + " Cod_Tipo_Commessa = " + Cod_Tipo_Commessa + " Cod_Cliente = " + Cod_Cliente;
         c.EseguiComando();
     }
 }

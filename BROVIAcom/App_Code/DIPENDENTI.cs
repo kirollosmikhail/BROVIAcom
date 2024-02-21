@@ -67,6 +67,7 @@ public class DIPENDENTI
         c.cmd.Parameters.AddWithValue("@Cognome", Cognome);
         c.cmd.Parameters.AddWithValue("@Cod_Dipendente", Cod_Dipendente);
 
+        c.Parametri = "Cognome = " + Cognome + " Cod_Dipendente = " + Cod_Dipendente;
         c.EseguiSelect();
         return c.dt;
     }
@@ -100,6 +101,8 @@ public class DIPENDENTI
         c.cmd.Parameters.AddWithValue("@Cod_Tipo_Dipendente", Cod_Tipo_Dipendente);
 
         c.querydicomando = "DipendentiMod";
+
+        c.Parametri = "Cod_Dipendente = " + Cod_Dipendente + " Cognome = " + Cognome + " Nome = " + Nome + " USR = " + USR + " Abilitato = " + Abilitato + " Codice_Fiscale = " + Codice_Fiscale + " P_IVA = " + P_IVA + " Data_Assunzione = " + Data_Assunzione + " Data_Licenziamento = " + Data_Licenziamento + " Salario = " + Salario + " Telefono = " + Telefono + " Indirizzo = " + Indirizzo + " Citta = " + Citta + " CAP = " + CAP + " Cod_Tipo_Dipendente = " + Cod_Tipo_Dipendente;
         c.EseguiComando();
     }
     public void DipendentiIns()
@@ -132,7 +135,8 @@ public class DIPENDENTI
         c.cmd.Parameters.AddWithValue("@Cod_Tipo_Dipendente", Cod_Tipo_Dipendente);
 
         c.querydicomando = "DipendentiIns";
-        c.Parametri = Cognome + " " + Nome + " " + USR + " " + Abilitato + " " + Codice_Fiscale + " " + P_IVA + " " + Data_Assunzione + " " + Data_Licenziamento + " " + Salario + " " + Telefono + " " + Indirizzo + " " + Citta + " " + CAP + " " + Cod_Tipo_Dipendente;
+
+        c.Parametri = "Cognome = " + Cognome + " Nome = " + Nome + " USR = " + USR + " Codice_Fiscale = " + Codice_Fiscale + " P_IVA = " + P_IVA + " Data_Assunzione = " + Data_Assunzione + " Data_Licenziamento = " + Data_Licenziamento + " Salario = " + Salario + " Telefono = " + Telefono + " Indirizzo = " + Indirizzo + " Citta = " + Citta + " CAP = " + CAP + " Cod_Tipo_Dipendente = " + Cod_Tipo_Dipendente;
         c.EseguiComando();
     }
 

@@ -26,6 +26,8 @@ public class TIPI_COMMESSE
         CONNESSIONE c = new CONNESSIONE();
         c.querydicomando = "TipiCommesseIns";
         c.cmd.Parameters.AddWithValue("@Nome_Commessa", Nome_Commessa);
+
+        c.Parametri = "Nome_Commessa = " + Nome_Commessa;
         c.EseguiComando();
     }
     public void TipiCommesseElimina()
@@ -33,6 +35,8 @@ public class TIPI_COMMESSE
         CONNESSIONE c = new CONNESSIONE();
         c.querydicomando = "TipiCommesseElimina";
         c.cmd.Parameters.AddWithValue("@Cod_Tipo_Commessa", Cod_Tipo_Commessa);
+
+        c.Parametri = "Cod_Tipo_Commessa = " + Cod_Tipo_Commessa;
         c.EseguiComando();
     }
 
