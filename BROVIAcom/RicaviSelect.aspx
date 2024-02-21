@@ -7,7 +7,7 @@
 
     <br />
     <div class="table-container">
-        <asp:GridView ID="GridView1" CssClass="gridview" runat="server" AutoGenerateColumns="False">
+        <asp:GridView ID="GridView1" CssClass="gridview" runat="server" AutoGenerateColumns="False" AllowPaging="True" PageSize="10">
             <columns>
                 <asp:BoundField DataField="Descrizione_Commessa" HeaderText="Descrizione_Commessa"></asp:BoundField>
                 <asp:BoundField DataField="Costi" HeaderText="Costi"></asp:BoundField>

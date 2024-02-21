@@ -50,7 +50,7 @@
     <%--USARE INVIO--%>
     <br />
     <div class="table-container">
-        <asp:GridView ID="GridView1" CssClass="gridview" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" DataKeyNames="Cod_Dipendente">
+        <asp:GridView ID="GridView1" CssClass="gridview" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" DataKeyNames="Cod_Dipendente" AllowPaging="True" PageSize="10">
             <columns>
                 <asp:CommandField SelectText="Modifica" ShowSelectButton="True" ButtonType="Button"></asp:CommandField>
                 <asp:BoundField DataField="Cognome" HeaderText="Cognome"></asp:BoundField>

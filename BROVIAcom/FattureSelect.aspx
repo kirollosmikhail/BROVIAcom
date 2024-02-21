@@ -21,7 +21,7 @@
     </div>
     <br />
     <div class="table-container">
-        <asp:GridView ID="GridView1" CssClass="gridview" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" DataKeyNames="Cod_Commessa">
+        <asp:GridView ID="GridView1" CssClass="gridview" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" DataKeyNames="Cod_Commessa" AllowPaging="True" PageSize="10">
             <Columns>
                 <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
                 <asp:BoundField DataField="Numero_Fattura" HeaderText="Numero Fattura"></asp:BoundField>

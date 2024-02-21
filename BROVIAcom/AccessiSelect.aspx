@@ -10,7 +10,7 @@
     
     <br />
     <div class="table-container">
-        <asp:GridView ID="GridView1" CssClass="gridview" runat="server" AutoGenerateColumns="False">
+        <asp:GridView ID="GridView1" CssClass="gridview" runat="server" AutoGenerateColumns="False" AllowPaging="True" PageSize="10" >
             <Columns>
                 <asp:BoundField DataField="IP" HeaderText="IP"></asp:BoundField>
                 <asp:BoundField DataField="USR" HeaderText="USER NAME"></asp:BoundField>

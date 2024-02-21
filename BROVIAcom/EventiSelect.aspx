@@ -9,7 +9,7 @@
 
     <br />
     <div class="table-container">
-        <asp:GridView ID="GridView1" CssClass="gridview" runat="server" AutoGenerateColumns="False">
+        <asp:GridView ID="GridView1" CssClass="gridview" runat="server" AutoGenerateColumns="False" AllowPaging="True" PageSize="10">
             <columns>
                 <asp:BoundField DataField="Data_Azione" HeaderText="Data"></asp:BoundField>
                 <asp:BoundField DataField="Azione" HeaderText="Azione"></asp:BoundField>

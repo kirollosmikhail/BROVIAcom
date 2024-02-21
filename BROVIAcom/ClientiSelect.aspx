@@ -11,7 +11,7 @@
         <asp:TextBox ID="cerca" runat="server" type="text" CssClass="form-control textbox" Style="width: 200px" placeholder="Ragione Sociale Cliente" AutoPostBack="true" OnTextChanged="Page_Load"></asp:TextBox> <%--USARE INVIO--%>
     <br />
     <div class="table-container">
-        <asp:GridView ID="GridView2" CssClass="gridview" runat="server" AutoGenerateColumns="False" DataKeyNames="Cod_Cliente" OnSelectedIndexChanged="GridView2_SelectedIndexChanged">
+        <asp:GridView ID="GridView2" CssClass="gridview" runat="server" AutoGenerateColumns="False" DataKeyNames="Cod_Cliente" OnSelectedIndexChanged="GridView2_SelectedIndexChanged" AllowPaging="True" PageSize="10">
             <Columns>
                 <asp:CommandField SelectText="Modifica" ShowSelectButton="True" ButtonType="Button"></asp:CommandField>
                 <asp:BoundField DataField="Ragione_Sociale" HeaderText="Ragione Sociale"></asp:BoundField> 

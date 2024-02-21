@@ -8,7 +8,7 @@
         <a href="TipiCommesseIns.aspx" Class="button">Inserisci Nuovo Tipo Commessa</a>
 <br />
 <div class="table-container" style="width:50%">
-    <asp:GridView ID="GridView3" CssClass="gridview" runat="server" AutoGenerateColumns="False" DataKeyNames="Cod_Tipo_Commessa" OnSelectedIndexChanged="GridView3_SelectedIndexChanged" >
+    <asp:GridView ID="GridView3" CssClass="gridview" runat="server" AutoGenerateColumns="False" DataKeyNames="Cod_Tipo_Commessa" OnSelectedIndexChanged="GridView3_SelectedIndexChanged" AllowPaging="True" PageSize="10">
         <Columns>
             <asp:CommandField SelectText="Elimina" ShowSelectButton="True" ButtonType="Button"></asp:CommandField>
             <asp:BoundField DataField="Nome_Commessa" HeaderText="Nome Commessa"></asp:BoundField> 
