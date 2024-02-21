@@ -15,7 +15,12 @@ public partial class FattureSelect : System.Web.UI.Page
         {
             rad_1.Checked = true;
         }
-        FATTURE f = new FATTURE();
+         BindGridView();
+    }
+
+    private void BindGridView()
+    { 
+    FATTURE f = new FATTURE();
         if (rad_1.Checked)
         {
             if (cerca.Text.Trim() == "")
@@ -58,8 +63,17 @@ public partial class FattureSelect : System.Web.UI.Page
                 GridView1.DataSource = f.FattureSelect();
             }
         }
+        // Imposta il paging
+        GridView1.AllowPaging = true;
+        GridView1.PageSize = 10; // Imposta il numero di righe per pagina
         GridView1.DataBind();
     }
+    protected void paging(object sender, GridViewPageEventArgs e)
+    {
+        GridView1.PageIndex = e.NewPageIndex;
+        BindGridView(); // Rileggi i dati per la nuova pagina
+    }
+
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
         string Id = GridView1.SelectedValue.ToString();

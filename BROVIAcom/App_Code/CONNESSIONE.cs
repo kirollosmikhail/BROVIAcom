@@ -36,7 +36,7 @@ public class CONNESSIONE
             }
             catch (Exception ex)
             {
-                if (querydiselezione != "Login")
+                if (!(querydiselezione == "Login" || querydiselezione.Contains("Select")))
                 {
                     ev.Data_Azione = DateTime.Now;
                     ev.Azione = querydiselezione;
@@ -47,7 +47,7 @@ public class CONNESSIONE
             }
             finally
             {
-                if (querydiselezione != "Login")
+                if (!(querydiselezione == "Login" || querydiselezione.Contains("Select")))
                 {
                     ev.Data_Azione = DateTime.Now;
                     ev.Azione = querydiselezione;

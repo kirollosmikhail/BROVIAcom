@@ -12,16 +12,21 @@ public partial class DipendentiSelect : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        BindGridView();
+    }
+
+    private void BindGridView()
+    {
         DIPENDENTI d = new DIPENDENTI();
         if (cerca.Text == "")
         {
-        GridView1.DataSource = d.DipendentiSelect();
+            GridView1.DataSource = d.DipendentiSelect();
         }
         else
         {
-            d.Cognome=cerca.Text;
-            DataTable dt= d.DipendentiCerca();
-            if(dt.Rows.Count == 0)
+            d.Cognome = cerca.Text;
+            DataTable dt = d.DipendentiCerca();
+            if (dt.Rows.Count == 0)
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "Errore", "alert('Nessun record trovato');", true);
                 GridView1.DataSource = d.DipendentiSelect();
@@ -32,17 +37,26 @@ public partial class DipendentiSelect : System.Web.UI.Page
             }
         }
 
+        // Imposta il paging
+        GridView1.AllowPaging = true;
+        GridView1.PageSize = 10; // Imposta il numero di righe per pagina
+
         GridView1.DataBind();
+    }
+
+    protected void paging(object sender, GridViewPageEventArgs e)
+    {
+        GridView1.PageIndex = e.NewPageIndex;
+        BindGridView(); // Rileggi i dati per la nuova pagina
     }
 
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
         string Id = GridView1.SelectedValue.ToString();
-        Response.Redirect("DipendentiMod.aspx?id="+ Id);
+        Response.Redirect("DipendentiMod.aspx?id=" + Id);
     }
 
     protected void Button2_Click(object sender, EventArgs e)
     {
-
     }
 }

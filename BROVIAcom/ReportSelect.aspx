@@ -13,7 +13,7 @@
     <div class="table-container">
         <asp:Label ID="reportAttesaRifiutati" runat="server" Text="<h4>REPORT IN ATTESA O RIFIUTATI</h4>"></asp:Label>
 
-        <asp:GridView ID="GridView1" CssClass="gridview" runat="server" AutoGenerateColumns="False" DataKeyNames="Cod_Lavoro" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowPaging="True" PageSize="10">
+        <asp:GridView ID="GridView1" CssClass="gridview" runat="server" AutoGenerateColumns="False" DataKeyNames="Cod_Lavoro" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnPageIndexChanging="paging">
             <Columns>
                 <asp:CommandField SelectText="Modifica" ShowSelectButton="True" ButtonType="Button"></asp:CommandField>
                 <asp:BoundField DataField="Data_Report" HeaderText="Data Report"></asp:BoundField>
@@ -36,7 +36,7 @@
     <div class="table-container">
         <asp:Label ID="reportApprovati" runat="server" Text="<h4>REPORT APPROVATI</h4>"></asp:Label>
 
-        <asp:GridView ID="GridView2" CssClass="gridview" runat="server" AutoGenerateColumns="False" DataKeyNames="Cod_Lavoro">
+        <asp:GridView ID="GridView2" CssClass="gridview" runat="server" AutoGenerateColumns="False" DataKeyNames="Cod_Lavoro" OnPageIndexChanging="paging2">
             <Columns>
                 <asp:BoundField DataField="Data_Report" HeaderText="Data Report"></asp:BoundField>
                 <asp:BoundField DataField="Cognome" HeaderText="Cognome"></asp:BoundField>

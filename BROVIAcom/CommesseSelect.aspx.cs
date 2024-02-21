@@ -8,22 +8,27 @@ using System.Web.UI.WebControls;
 
 public partial class CommesseSelect : System.Web.UI.Page
 {
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
             DdlRiempiTipiCommesse();
         }
+        BindGridView();
+    }
 
+    private void BindGridView()
+    {
         COMMESSE c = new COMMESSE();
-        if (cerca.Text == ""&& ddlTipiCommesse.SelectedValue== "-Tutte-")
+        if (cerca.Text == "" && ddlTipiCommesse.SelectedValue == "-Tutte-")
         {
             GridView1.DataSource = c.CommesseSelect();
         }
         else
         {
             c.Ragione_Sociale = cerca.Text;
-            if(ddlTipiCommesse.SelectedValue == "-Tutte-")
+            if (ddlTipiCommesse.SelectedValue == "-Tutte-")
                 c.Cod_Tipo_Commessa = 0;
             else
                 c.Cod_Tipo_Commessa = int.Parse(ddlTipiCommesse.SelectedValue);
@@ -39,8 +44,17 @@ public partial class CommesseSelect : System.Web.UI.Page
                 GridView1.DataSource = dt;
             }
         }
-
+        // Imposta il paging
+        GridView1.AllowPaging = true;
+        GridView1.PageSize = 10; // Imposta il numero di righe per pagina
         GridView1.DataBind();
+    }
+
+
+    protected void paging(object sender, GridViewPageEventArgs e)
+    {
+        GridView1.PageIndex = e.NewPageIndex;
+        BindGridView(); // Rileggi i dati per la nuova pagina
     }
     protected void DdlRiempiTipiCommesse()
     {

@@ -8,7 +8,7 @@
         <a href="TipiDipendentiIns.aspx" Class="button">Inserisci Nuovo Tipo Dipendente</a>
 <br />
 <div class="table-container" style="width:50%">
-    <asp:GridView ID="GridView1" CssClass="gridview" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" DataKeyNames="Cod_Tipo_Dipendente" AllowPaging="True" PageSize="10">
+    <asp:GridView ID="GridView1" CssClass="gridview" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" DataKeyNames="Cod_Tipo_Dipendente" OnPageIndexChanging="paging">
         <Columns>
             <asp:CommandField SelectText="Elimina" ShowSelectButton="True" ButtonType="Button"></asp:CommandField>
             <asp:BoundField DataField="Tipo_Dipendente" HeaderText="Tipo Dipendente"></asp:BoundField> 

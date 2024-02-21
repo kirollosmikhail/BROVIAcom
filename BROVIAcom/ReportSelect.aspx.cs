@@ -13,11 +13,17 @@ public partial class _Default : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            ReportApprovati();
-            SessionDipendenti();
+            BindGridView2();
         }
 
-
+        BindGridView();
+    }
+    private void BindGridView()
+    {
+        if (IsPostBack)
+        {
+            SessionDipendenti();
+        }
         REPORT r = new REPORT();
         if (Cerca2.Text.Trim() != "")
         {
@@ -33,16 +39,28 @@ public partial class _Default : System.Web.UI.Page
                 r.Data_Report = DateTime.Parse(Cerca2.Text.Trim());
                 GridView1.DataSource = r.ReportCerca();
             }
+            // Imposta il paging
+            GridView1.AllowPaging = true;
+            GridView1.PageSize = 10; // Imposta il numero di righe per pagina
             GridView1.DataBind();
         }
     }
-
-    protected void ReportSelect()
+    private void BindGridView2()
     {
-        LAVORI l = new LAVORI();
-        GridView1.DataSource = l.LavoriSelect();
-        GridView1.DataBind();
+        ReportApprovati();
     }
+
+    protected void paging(object sender, GridViewPageEventArgs e)
+    {
+        GridView1.PageIndex = e.NewPageIndex;
+        BindGridView(); // Rileggi i dati per la nuova pagina
+    }
+    protected void paging2(object sender, GridViewPageEventArgs e)
+    {
+        GridView1.PageIndex = e.NewPageIndex;
+        BindGridView2(); // Rileggi i dati per la nuova pagina
+    }
+
 
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -60,19 +78,18 @@ public partial class _Default : System.Web.UI.Page
             Inserisci.Visible = false;
             reportApprovati.Visible = false;
             GridView2.Visible = false;
-            ReportSelect();
+            LAVORI l = new LAVORI();
+            GridView1.DataSource = l.LavoriSelect(); 
         }
         else
         {
-            ReportDipendentiSelect();
+            REPORT r = new REPORT();
+            r.Cod_Dipendente = int.Parse(Session["Cod_Dipendente"].ToString());
+            GridView1.DataSource = r.ReportDipendentiSelect();   
         }
-    }
-
-    protected void ReportDipendentiSelect()
-    {
-        REPORT r = new REPORT();
-        r.Cod_Dipendente = int.Parse(Session["Cod_Dipendente"].ToString());
-        GridView1.DataSource = r.ReportDipendentiSelect();
+        // Imposta il paging
+        GridView1.AllowPaging = true;
+        GridView1.PageSize = 10; // Imposta il numero di righe per pagina
         GridView1.DataBind();
     }
 
@@ -81,6 +98,9 @@ public partial class _Default : System.Web.UI.Page
         REPORT r = new REPORT();
         r.Cod_Dipendente = int.Parse(Session["Cod_Dipendente"].ToString());
         GridView2.DataSource = r.ReportApprovati();
+        // Imposta il paging
+        GridView1.AllowPaging = true;
+        GridView1.PageSize = 10; // Imposta il numero di righe per pagina
         GridView2.DataBind();
     }
 

@@ -10,6 +10,11 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        BindGridView();
+    }
+
+    private void BindGridView()
+    {
         CLIENTI c = new CLIENTI();
         if (cerca.Text == "")
         {
@@ -29,7 +34,15 @@ public partial class _Default : System.Web.UI.Page
                 GridView2.DataSource = dt;
             }
         }
+        // Imposta il paging
+        GridView2.AllowPaging = true;
+        GridView2.PageSize = 10; // Imposta il numero di righe per pagina
         GridView2.DataBind();
+    }
+        protected void paging(object sender, GridViewPageEventArgs e)
+    {
+        GridView2.PageIndex = e.NewPageIndex;
+        BindGridView(); // Rileggi i dati per la nuova pagina
     }
 
     protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
