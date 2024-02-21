@@ -5,12 +5,12 @@
 <html>
 <head>
     <title>BroviaCom</title>
-        <script src="JS/AdattaTabella.js"></script>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
     <link rel="icon" type="image/x-icon" href="img/BROVIAico.png" />
     <link href="css/StyleSheet.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>   
+    </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -24,29 +24,29 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarText">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">  
-                                <asp:Button ID="dipendenti_btn" class="nav-link" runat="server" Text="Dipendenti" OnClick="dipendenti_btn_Click" />                  
+                            <li class="nav-item">
+                                <asp:Button ID="dipendenti_btn" class="nav-link" runat="server" Text="Dipendenti" OnClick="dipendenti_btn_Click" />
                             </li>
-                            <li class="nav-item">  
-                                <asp:Button ID="eventi_btn" class="nav-link" runat="server" Text="Eventi" OnClick="eventi_btn_Click" />                  
+                            <li class="nav-item">
+                                <asp:Button ID="eventi_btn" class="nav-link" runat="server" Text="Eventi" OnClick="eventi_btn_Click" />
                             </li>
-                            <li class="nav-item">  
-                                <asp:Button ID="accessi_btn" class="nav-link" runat="server" Text="Accessi" OnClick="accessi_btn_Click" />                  
+                            <li class="nav-item">
+                                <asp:Button ID="accessi_btn" class="nav-link" runat="server" Text="Accessi" OnClick="accessi_btn_Click" />
                             </li>
-                            <li class="nav-item">  
-                                <asp:Button ID="report_btn" class="nav-link" runat="server" Text="Report" OnClick="report_btn_Click" />                  
+                            <li class="nav-item">
+                                <asp:Button ID="report_btn" class="nav-link" runat="server" Text="Report" OnClick="report_btn_Click" />
                             </li>
-                            <li class="nav-item">  
-                                <asp:Button ID="clienti_btn" class="nav-link" runat="server" Text="Clienti" OnClick="clienti_btn_Click" />                  
+                            <li class="nav-item">
+                                <asp:Button ID="clienti_btn" class="nav-link" runat="server" Text="Clienti" OnClick="clienti_btn_Click" />
                             </li>
-                            <li class="nav-item">  
-                                <asp:Button ID="commesse_btn" class="nav-link" runat="server" Text="Commesse" OnClick="commesse_btn_Click" />                  
+                            <li class="nav-item">
+                                <asp:Button ID="commesse_btn" class="nav-link" runat="server" Text="Commesse" OnClick="commesse_btn_Click" />
                             </li>
-                            <li class="nav-item">  
-                                <asp:Button ID="fatture_btn" class="nav-link" runat="server" Text="Fatture" OnClick="fatture_btn_Click" />                  
+                            <li class="nav-item">
+                                <asp:Button ID="fatture_btn" class="nav-link" runat="server" Text="Fatture" OnClick="fatture_btn_Click" />
                             </li>
                         </ul>
-                        <asp:Button ID="logout_btn" class="navbar-nav nav-link" runat="server" Text="Logout" OnClick="Logout_btn_Click" />                   
+                        <asp:Button ID="logout_btn" class="navbar-nav nav-link" runat="server" Text="Logout" OnClick="Logout_btn_Click" />
                     </div>
                 </div>
             </nav>
@@ -65,24 +65,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
-<script>
- 
-        window.onload = zoom;
-        function zoom() {
-            var width = window.screen.width;
-            if (width <= 600) {
-                // Se la larghezza della finestra è inferiore o uguale a 600px, imposta lo zoom a 1.9
-                document.body.style.zoom = 1.9;
-            }
-            else if (width <= 990) {
-                // Se la larghezza della finestra è inferiore o uguale a 990px, imposta lo zoom a 1.4
-                document.body.style.zoom = 1.4;
-            }
-            else {
-                // Altrimenti, lascia lo zoom predefinito
-                document.body.style.zoom = 1;
-            }
-        }
-    
-</script>
+<script src="JS/AdattaTabella.js"></script>
 </html>
