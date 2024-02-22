@@ -70,6 +70,7 @@ p {
     white-space: nowrap;
 }
 
+
 /*Contenitore sub-link*/
 .linker {
 }
@@ -219,6 +220,9 @@ footer {
         white-space: nowrap;
     }
 
+.eventi td {
+    white-space: normal;
+}
     .gridview th {
         background-color: #cce5ff;
     }

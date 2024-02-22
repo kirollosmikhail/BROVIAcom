@@ -8,12 +8,12 @@
     <asp:Button ID="btnElimena" runat="server" CssClass="button" Text="Elimina Tutti Record" OnClick="btnElimena_Click" />
 
     <br />
-    <div class="table-container">
-        <asp:GridView ID="GridView1" CssClass="gridview" runat="server" AutoGenerateColumns="False" OnPageIndexChanging="paging">
-            <columns>
+    <div class="table-container eventi">
+        <asp:GridView ID="GridView1" CssClass="gridview" runat="server" AutoGenerateColumns="False" OnPageIndexChanging="paging" style="white-space: normal;">
+            <columns >
                 <asp:BoundField DataField="Data_Azione" HeaderText="Data"></asp:BoundField>
                 <asp:BoundField DataField="Azione" HeaderText="Azione"></asp:BoundField>
-                <asp:BoundField DataField="Parametri" HeaderText="Parametri"></asp:BoundField>
+                <asp:BoundField DataField="Parametri" HeaderText="Parametri" ></asp:BoundField>
                 <asp:BoundField DataField="USR" HeaderText="USERNAME"></asp:BoundField>
                 <asp:BoundField DataField="Cognome" HeaderText="Cognome"></asp:BoundField>
                 <asp:BoundField DataField="Nome" HeaderText="Nome"></asp:BoundField>
