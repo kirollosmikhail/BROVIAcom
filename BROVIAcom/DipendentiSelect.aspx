@@ -21,7 +21,7 @@
                     title: 'Inserisci Nuovo Dipendente',
                     resizable: true,
                     width: 600,
-                    height: 900,
+                    height: 1000,
                     draggable: true,
                     buttons: {
                         Aggiorna: function () {
