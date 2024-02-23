@@ -77,10 +77,7 @@ public partial class DipendentiSelect : System.Web.UI.Page
         string Id = GridView1.SelectedValue.ToString();
         Response.Redirect("DipendentiMod.aspx?id=" + Id);
     }
-    protected void Button1_Click(object sender, EventArgs e)
-    {
-        Insert.Visible = true;
-    }
+
 
     //INSERT
     protected void DdlRiempiTipiDipendenti()
@@ -117,7 +114,7 @@ public partial class DipendentiSelect : System.Web.UI.Page
             d.USR = USR_txt.Text.Trim();
 
             d.DipendentiIns();
-            Insert.Visible = false;
+            Response.Redirect("DipendentiSelect.aspx");
         }
 
 
