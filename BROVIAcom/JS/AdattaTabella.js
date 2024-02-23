@@ -1,9 +1,4 @@
-﻿// Funzione per calcolare la larghezza della finestra del browser
-function getWindowWidth() {
-    return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-}
-
-// Funzione per verificare se la larghezza della finestra è inferiore alla larghezza di .table-container
+﻿// Funzione per verificare se la larghezza della finestra è inferiore alla larghezza di .table-container
 function checkWidth() {
     if (document.querySelector('.table-container') != null) {
         var tableContainer = document.querySelector('.table-container');
@@ -56,5 +51,4 @@ function checkWidth2() {
 }
 // Esegui la funzione all'avvio della pagina e ogni volta che la finestra viene ridimensionata
 window.onload = checkWidth;
-
 window.onresize = checkWidth2;
