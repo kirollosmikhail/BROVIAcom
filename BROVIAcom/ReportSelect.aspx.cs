@@ -45,7 +45,7 @@ public partial class _Default : System.Web.UI.Page
     }
     private void BindGridView()
     {
-        if (IsPostBack)
+        if (!IsPostBack)
         {
             SessionDipendenti();
         }
