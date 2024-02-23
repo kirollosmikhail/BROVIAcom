@@ -74,14 +74,7 @@
                 </div>
             </div>
             <p>*obbligatori</p>
-            <asp:Button ID="btninsert" runat="server" CssClass="button" Text="Conferma" OnClick="btninsert_Click" OnClientClick="closePopupInParent();" />
-            <script>
-                function closePopupInParent() {
-                    // Comunica con la pagina principale e chiudi il popup
-                    window.parent.closePopup();
-                    return false; // Per prevenire il postback del pulsante
-                }
-            </script>
+            <asp:Button ID="btninsert" runat="server" CssClass="button" Text="Conferma" OnClick="btninsert_Click" />
         </div>
     </form>
 </body>
