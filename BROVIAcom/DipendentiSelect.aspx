@@ -11,28 +11,27 @@
 
     <script type="text/javascript">
 
-
+        function closePopup() {
+            $("#iframe1").dialog("close");
+            window.location.reload();
+        }
         function showpopup() {
             $(function () {
-                
-                var findialog = $('<div  ID="iframe1" style="overflow: hidden; padding:0;"> <iframe src="Default.aspx" frameborder="0" class="ui-dialog-content ui-widget-content" style="width: 100%;min-width:0px;min-height: 0px;height: 100%; padding:0;"></iframe></div>').appendTo('body');
+                var findialog = $('<div ID="iframe1" style="overflow: hidden; padding:0;"> <iframe src="Default.aspx" frameborder="0" class="ui-dialog-content ui-widget-content" style="width: 100%;min-width:0px;min-height: 0px;height: 100%; padding:0;overflow: hidden"></iframe></div>').appendTo('body');
                 findialog.dialog({
                     modal: true,
-                    title: 'Inserisci Nuovo Dipendente',
                     resizable: true,
-                    width: 600,
-                    height: 1000,
-                    draggable: true,
-                    buttons: {
-                        Aggiorna: function () {
-                            $(this).dialog('close');
-                            $("[id *= Button2]").click();
-
-                        }
+                    width: 630,
+                    height: 800,
+                    draggable: false,
+                    dialogTitle: false,
+                    open: function (event, ui) {
+                        $(this).closest('.ui-dialog').find('.ui-dialog-titlebar').hide();
+                        $(this).closest('.ui-dialog').find('.ui-dialog-titlebar-close').hide(); 
+                        $(this).closest('.ui-dialog').find('.ui-dialog-buttonset button').addClass('button');
                     }
-                });   
+                });
             });
-            document.querySelector('.ui-dialog-buttonset').querySelector('button').classList.add('button');
         }
         
     </script>
